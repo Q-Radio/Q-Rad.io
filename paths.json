@@ -1,0 +1,41 @@
+{
+  "root": "",
+  "client": {
+    "root": "src/client",
+    "app": "src/client/app",
+    "index": "src/client/index.html",
+    "html": "src/client/app/**/*.html",
+    "js": "src/client/app/**/*.js",
+    "css": "src/client/app/**/*.css"
+  },
+  "vendor": {
+    "root": "build/vendor",
+    "all": "build/vendor/**/*",
+    "js": "build/vendor/js/**/*",
+    "css": "build/vendor/css/**/*",
+    "fonts": "build/vendor/fonts/**/*",
+    "dir": {
+      "js": "build/vendor/js",
+      "css": "build/vendor/css",
+      "fonts": "build/vendor/fonts"
+    }
+  },
+  "build": {
+    "root": "build",
+    "all": "build/**/*",
+    "index": "build/index.html",
+    "js": "build/js/**/*",
+    "css": "build/css/**/*",
+    "vendor": "build/vendor/**/*",
+    "templates": "build/templates/**/*",
+    "dir": {
+      "js": "build/js",
+      "css": "build/css",
+      "vendor": "build/vendor",
+      "templates": "build/templates"
+    }
+  },
+  "server": {
+    "root": "../../src/server/index.js"
+  }
+}

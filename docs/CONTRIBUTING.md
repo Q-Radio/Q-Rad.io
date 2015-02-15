@@ -20,7 +20,13 @@ This workflow is based (nearly verbatim) on the workflow described [here](https:
     $ git remote add upstream https://github.com/temporary-zebra/SuperMusic.git
     ```
 
-1. Create a new branch for the feature you'd like to work on. Please try to name the branch as appropriately as possible (be terse, yet descriptive).
+1. Create a new branch for the feature you'd like to work on. Your branch should follow this naming convention:
+
+* bug/...
+* feat/...
+* test/...
+* doc/...
+* refactor/...
 
     ```bash
     $ git checkout -b your-sweet-new-branch
@@ -28,7 +34,23 @@ This workflow is based (nearly verbatim) on the workflow described [here](https:
 
 1. Develop on **your-sweet-new-branch** only. **DO NOT merge the upstream master with your development branch!**
 
-1. Commit your changes to your **your-sweet-new-branch**. Be descriptive, but not too much so. Later, we'll be condensing all of your work into one big commit - that's where you'll want to tell us all of the work you did in a bit more detail. 
+1. Commit your changes to your **your-sweet-new-branch**. Prefix each commit like so
+
+(feat) adds a new feature
+(fix) fixes inconsistent tests [Fixes #0]
+(refactor) ...
+(cleanup) ...
+(test) ...
+(doc) ...
+Make changes and commits on your branch, and make sure that you only make changes that are relevant to this branch. If you find yourself making unrelated changes, make a new branch for those changes.
+
+Commit Message Guidelines
+
+Commit messages should be written in the present tense; e.g. "Fix continuous integration script".
+The first line of your commit message should be a brief summary of what the commit changes. Aim for about 70 characters max. Remember: This is a summary, not a detailed description of everything that changed.
+If you want to explain the commit in more depth, following the first line should be a blank line and then a more detailed description of the commit. This can be as detailed as you want, so dig into details here and keep the first line short. 
+
+1. Be descriptive, but not too much so. Later, we'll be condensing all of your work into one big commit - that's where you'll want to tell us all of the work you did in a bit more detail. 
 
     ```bash
     $ git add FILE
@@ -121,12 +143,12 @@ The feature you're working on is perfect, and the code you've written would make
     pick ba5599a Even more cool stuff
     ```
 
-1. Change every commit but the first to 'squish' (or 's' for short), winding up with something like this:
+1. Change every commit but the first to 'squash' (or 's' for short), winding up with something like this:
 
     ```sh
     pick d603a49 Sample Commit
-    squish c294daf Some cool new stuff
-    squish ba5599a Even more cool stuff
+    squash c294daf Some cool new stuff
+    squash ba5599a Even more cool stuff
     ```
 
 1. If all goes well, another text editor will open prompting you for a new commit message for the entire 'squashed' commit. Rename it appropriately, and if all goes well you'll have a new history with all recent commits rolled into one, ready for a pull request.
