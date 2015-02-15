@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:3tAwGmIYlx4dqC0PAT9y8I" width="300" height="380" align="middle" frameborder="0" allowtransparency="true"></iframe>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @song.album %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
