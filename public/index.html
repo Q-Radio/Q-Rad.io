@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+  <script src="listener.js"></script>
+
+  <script>
+  $(document).ready(function(){
+
+
+
+  var data = 'lololololol'
+  var post = function(){  
+    $.ajax({
+      url : "https://localhost:3000/",
+      type : 'POST',
+      dataType:'text',
+      data: data,
+      success : function(data) {              
+        alert('Data: '+ data);
+      },
+      error : function(request, error){
+        alert("error: " + JSON.stringify(error));
+      }
+    });
+    }
+
+  $('.button').on('click', post);
+
+  })
+  </script>
+
+  <form>
+    <input>SuperMusic_id</input>
+    <input>Spotify_track_id</input>
+    <input>song_name</input>
+    <input>live_performance</input>
+    <input>genre</input>
+    <input>artist</input>
+    <button class="button">Submit</button>
+  </form>
+</body>
+</html>
