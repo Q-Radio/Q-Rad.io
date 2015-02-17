@@ -3,35 +3,44 @@ var app = express();
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var Kitten = require(__dirname + '/database.js');
-var morgan = require('morgan');
+var http = require('http');
+var ENV = require('../.ENV');
 
-morgan('dev', {
-  //skip: function (req, res) { return res.statusCode < 400 }
-})
 
-mongoose.connect('mongodb://localhost/shmoosh');
+mongoose.connect(ENV.mongo);
 
-app.use(morgan())
 app.use(express.static(__dirname))
 
-app.get('/', function(req, res){
-  //our landing page
-  //this saves a new document to the DB
-// var kitten = new Kitten({genre: 'rock'})
-// kitten.save();
+app.get('/test', function(req, res){
+  console.log('test');
+  http.get(ENV.echonest, function(APIresponse){
+      var data = '';
+      APIresponse.on('data', function(chunk){
+        data+=chunk;
+      });
+      APIresponse.on('end', function(){
+        var songsArray = JSON.parse(data).response.songs;
+        console.log(songsArray);
 
-//   var kitten = Kitten.findOne({genre: 'rock'}, function(err, doc){
-//     if (err) {
-//       return console.log(err);
-//     } else {
+        for( var i = 0; i < songsArray.length; i++ ){
+          var song = songsArray[i].audio_summary;
+          var score = song.key*10 + song.energy*10 + song.liveness*10 + song.tempo/50 + song.speechiness*10 + song.acousticness*10 + song.instrumentalness*10 
+            + song.mode*10 + song.time_signature*10 + song.loudness/10 + song.valence*10 + song.danceability*10;
 
-//       console.log('lololool', doc);
-//     }
-//   })
+            var songData = songsArray[i];
+            songData.score = score;
+            var songEntry = new Kitten(songData);
+            songEntry.save();
 
-  //kitten.save();
-  var path = __dirname + '/index.html';
-  res.sendFile(path);
+        }
+
+        // var path = __dirname + '/index.html';
+        // res.sendFile(path);
+      })
+
+    });
+
+
 }); 
 
 app.get('/splash', function(req, res){

@@ -8,4 +8,4 @@ build/vendor/*
 build/index.html
 data
 MyClassification
-.env
+.ENV

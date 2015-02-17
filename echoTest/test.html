@@ -11,7 +11,7 @@ Treat echoTest as its own repo -- as such, be sure to:
 <!DOCTYPE html>
 <html>
 <head>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="../lib/bower_components/jquery/dist/jquery.js"></script>
 
 </head>
 <body>
@@ -20,107 +20,36 @@ Treat echoTest as its own repo -- as such, be sure to:
 $(document).ready(function(){
 
 
-    var fetchSongs = function (start, results) {
-        var url = 'http://developer.echonest.com/api/v4/song/search';
+      var fetchSongs = function (start, results) {
+          var url = 'http://developer.echonest.com/api/v4/song/search';
 
-        var args = {
-            api_key: '',
-            bucket : ['id:rdio-US', 'tracks', 'song_hotttnesss'],
-            limit: true,
-            start: 0,
-            results: 10,
-            sort: 'song_hotttnesss-desc'
-        };
+          var args = {
+              api_key: 'DTFBQA32EVM2GY3KB',
+              bucket : 'audio_summary',
+              results: 100,
+              sort: 'song_hotttnesss-desc',
+              format: 'jsonp'
+          };
 
-        $.ajax({
-          dataType: "json",
-          url: url,
-          data: args,
-          success: function(data) {
-                var songs = data.response.songs
-                if (songs.length == 0) {
-                    error("NO rdio songs for " );
-                } else {
-                    $.each(songs, function(index, song) {
-                        console.log(song);
-                    });
-                }
-            },
+          $.ajax({
+            dataType: "jsonp",
+            url: url,
+            data: args,
+            success: function(data) {
+                console.log(data);
+                //add contents of array to DB
 
-            error: function() {
-                console.log("trouble getting songs for " );
-            }
-        });
 
-        //Original example
-        // $.getJSON(url, args, 
-        //     function(data) {
-        //         var songs = data.response.songs
-        //         if (songs.length == 0) {
-        //             error("NO rdio songs for " + artistName);
-        //         } else {
-        //             $.each(songs, function(index, song) {
-        //                 console.log(song);
-        //             });
-        //         }
-        //     },
+              },
 
-        //     function() {
-        //         error("trouble getting songs for " + artistName);
-        //     }
-        // );
+              error: function() {
+                  console.log("trouble getting songs for " );
+              }
+          });
     }
-    
-// Create the XHR object.
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // XHR for Chrome/Firefox/Opera/Safari.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // XDomainRequest for IE.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
-  }
-  return xhr;
-}
-
-// Helper method to parse the title tag from the response.
-function getTitle(text) {
-  return text.match('<title>(.*)?</title>')[1];
-}
-
-// Make the actual CORS request.
-function makeCorsRequest() {
-  // All HTML5 Rocks properties support CORS.
-  var url = 'http://updates.html5rocks.com';
-
-  var xhr = createCORSRequest('GET', url);
-  if (!xhr) {
-    alert('CORS not supported');
-    return;
-  }
-
-  // Response handlers.
-  xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
-  };
-
-  xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
-  };
-
-  xhr.send();
-}
-
-setTimeout(function(){fetchSongs()}, 1000)
-    
-})
+  setTimeout(function(){fetchSongs()}, 1000)
+      
+  })
 </script>
 
 
