@@ -19,7 +19,9 @@
     "url": "https://github.com/ericbenson/SuperMusic/issues"
   },
   "dependencies": {
-    "express": "~4.11.2"
+    "express": "~4.11.2",
+    "http": "0.0.0",
+    "mongoose": "~3.8.23"
   },
   "devDependencies": {
     "connect-livereload": "~0.5.3",
