@@ -19,9 +19,12 @@
     "url": "https://github.com/ericbenson/SuperMusic/issues"
   },
   "dependencies": {
+    "browserify": "^8.1.3",
     "express": "~4.11.2",
     "http": "0.0.0",
-    "mongoose": "~3.8.23"
+    "mongoose": "~3.8.23",
+    "node-libspotify": "^0.1.0",
+    "node-spotify": "^0.7.0"
   },
   "devDependencies": {
     "connect-livereload": "~0.5.3",

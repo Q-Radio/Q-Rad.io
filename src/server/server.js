@@ -3,7 +3,8 @@
   var express  = require('express');
   var reloader = require('connect-livereload');
   var mongoose = require('mongoose');
-  
+
+  //var spotify = require('./playerTest.js');
   var Song = require(__dirname + '/../seedDBServer/database.js');
   var ENV = require('../../.ENV');
 
@@ -49,6 +50,13 @@
       }
 
 
+    })
+
+    app.get('/win',function(req, res){
+     var data = Song.find();
+     //console.log(data);
+     res.send(data);
+      
     })
 
     app.listen(8000, function() {

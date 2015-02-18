@@ -1,0 +1,2383 @@
+Browserify: /Users/Zach/HackReactor/SuperMusic/src/server/node_modules/.bin/browserifyinc -d --transform reactify --extension=".jsx" --list --cachefile="/Users/Zach/HackReactor/SuperMusic/src/server/tmp/browserify-rails/browserifyinc-cache.json" -o "/Users/Zach/HackReactor/SuperMusic/src/server/tmp/browserify-rails/output20150216-1108-24lxjw" -
+Browserify: /Users/Zach/HackReactor/SuperMusic/src/server/node_modules/.bin/browserifyinc -d --transform reactify --extension=".jsx" --cachefile="/Users/Zach/HackReactor/SuperMusic/src/server/tmp/browserify-rails/browserifyinc-cache.json" -o "/Users/Zach/HackReactor/SuperMusic/src/server/tmp/browserify-rails/output20150216-1108-6den18" -
+
+
+Started GET "/" for ::1 at 2015-02-16 11:21:18 -0800
+Processing by SongsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 3.9190ms
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 9.4280ms
+  Rendered songs/index.html.erb within layouts/application (275.7ms)
+Completed 500 Internal Server Error in 305ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70112941580520 @seeds=[<Moped::Node resolved_address="127.0.0.1:27017">]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___4094097055767010309_70112941488140'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (30.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 11:24:16 -0800
+Processing by SongsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 1.0840ms
+  MOPED: 127.0.0.1:27017 QUERY        database=super_music_development collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4430ms
+  Rendered songs/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 1053ms (Views: 1037.0ms)
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 11:24:17 -0800
+
+
+Started GET "/songs/new" for ::1 at 2015-02-16 11:24:45 -0800
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (20.5ms)
+  Rendered songs/new.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 71ms (Views: 69.3ms)
+
+
+Started POST "/songs" for ::1 at 2015-02-16 11:24:57 -0800
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B+y0QCBG8dIvaPom068TdZXkmcgLRhzXp68EhPIliEJJ1bQJ98oCd6fPtaHKXgHrJEfTtgVsuasl5TkA+XH8mg==", "song"=>{"name"=>"Zach", "artist"=>"superjam", "album"=>"blah"}, "commit"=>"Create Song"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.4150ms
+  MOPED: 127.0.0.1:27017 INSERT       database=super_music_development collection=songs documents=[{"_id"=>BSON::ObjectId('54e244095a616304f8000000'), "name"=>"Zach", "artist"=>"superjam", "album"=>"blah"}] flags=[]
+                         COMMAND      database=super_music_development command={:getlasterror=>1, :w=>1} runtime: 142.4320ms
+Redirected to http://localhost:3000/songs/54e244095a616304f8000000
+Completed 302 Found in 146ms
+
+
+Started GET "/songs/54e244095a616304f8000000" for ::1 at 2015-02-16 11:24:57 -0800
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"54e244095a616304f8000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=super_music_development collection=songs selector={"_id"=>BSON::ObjectId('54e244095a616304f8000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.1210ms
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 50ms (Views: 48.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-02-16 11:26:14 -0800
+Processing by SongsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.3910ms
+  MOPED: 127.0.0.1:27017 QUERY        database=super_music_development collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3210ms
+  Rendered songs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 51ms (Views: 50.3ms)
+
+
+Started GET "/songs/54e244095a616304f8000000" for ::1 at 2015-02-16 11:26:15 -0800
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"54e244095a616304f8000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=super_music_development collection=songs selector={"_id"=>BSON::ObjectId('54e244095a616304f8000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3540ms
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 101ms (Views: 99.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 11:57:46 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (8248.4ms)
+Completed 500 Internal Server Error in 8276ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70256874659460 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___1652732475817198223_70256874544560'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (51.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 11:59:08 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (8432.0ms)
+Completed 500 Internal Server Error in 8453ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70216438531120 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3395840632537716133_70216414438180'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:00:39 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (10271.3ms)
+Completed 500 Internal Server Error in 10293ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70289206798580 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2826029882344318094_70289206684640'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (27.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:04:53 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV[mongo]:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (6687.8ms)
+Completed 500 Internal Server Error in 6711ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70349674077860 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___4388074424859564119_70349673941100'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:06:35 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV[mongo]:55690/supermusic runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV[mongo]:55690/supermusic runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (8024.5ms)
+Completed 500 Internal Server Error in 8046ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70181772320240 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__3227422108094115326_70181772183260'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:09:15 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690/supermusic runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690/supermusic runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (2046.8ms)
+Completed 500 Internal Server Error in 2072ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70238223346480 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__3514759568302375620_70238223234500'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:09:47 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (1253.2ms)
+Completed 500 Internal Server Error in 1274ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70307532155620 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___4497925262173952258_70307532043780'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:16:45 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: ENV["mongo"]:55690 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (959.3ms)
+Completed 500 Internal Server Error in 987ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70186813901860 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2772967412884224538_70186813789620'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (32.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:21:48 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: 55690:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: 55690:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (445.5ms)
+Completed 500 Internal Server Error in 467ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70251959929520 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__77999282282610888_70251959817780'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (29.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:22:52 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: 55690:27017 runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: 55690:27017 runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (407.2ms)
+Completed 500 Internal Server Error in 428ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70338961246660 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___4299886244031467945_70338961135020'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:29:32 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (undefined method `map' for :"55690":Symbol):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2717163671263785015_70289777568600'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:30:23 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `map' for :"55690":Symbol):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__1680400473906727618_70156511357780'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:30:56 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (undefined method `map' for :"55690":Symbol):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3512165284847647759_70239222073960'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:31:29 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (undefined method `map' for :"55690":Symbol):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___4181436012653694335_70220626941260'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:31:56 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `map' for "supermusic:supermusic@ds055690.mongolab.com:55690":String):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___452382811100581059_70110618129920'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 12:32:26 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 30ms
+
+ActionView::Template::Error (undefined method `map' for "supermusic:supermusic@ds055690.mongolab.com:55690/supermusic":String):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___876661490828703900_70351367214840'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 14:40:25 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (undefined method `map' for "supermusic:supermusic@ds055690.mongolab.com:55690/supermusic":String):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2222708946093395555_70287525475540'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 14:44:28 -0800
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (undefined method `map' for "supermusic:supermusic@ds055690.mongolab.com:55690/supermusic":String):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2222708946093395555_70287525475540'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 14:45:07 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: supermusic:supermusic@ds055690.mongolab.com:55690/supermusic runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: supermusic:supermusic@ds055690.mongolab.com:55690/supermusic runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (400.5ms)
+Completed 500 Internal Server Error in 425ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70206111706620 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__1398784904691300503_70206111594120'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 14:50:04 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: mongodb://supermusic:supermusic@ds055690.mongolab.com:55690/supermusic runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: mongodb://supermusic:supermusic@ds055690.mongolab.com:55690/supermusic runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (397.7ms)
+Completed 500 Internal Server Error in 422ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70346745122180 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__1976708046563416590_70346711439000'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 14:51:33 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 273.9930ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 43.9380ms
+  Rendered songs/index.html.erb within layouts/application (425.2ms)
+Completed 200 OK in 582ms (Views: 569.3ms)
+
+
+Started GET "/songs/new" for ::1 at 2015-02-16 15:03:47 -0800
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (20.7ms)
+  Rendered songs/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 79ms (Views: 78.6ms)
+
+
+Started POST "/songs" for ::1 at 2015-02-16 15:03:55 -0800
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NsB9bLEsek3fEqaePcj5Q46MejF4k3DG9Cy33rFiAPJkDJJ6aIELHNeqJjONk5jkokiIJp6BZWCfMyROTsrBGw==", "song"=>{"name"=>"testing", "artist"=>"testing", "album"=>"more testing"}, "commit"=>"Create Song"}
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 72.9590ms
+  MOPED: 107.178.209.43:55690 INSERT       database=supermusic collection=songs documents=[{"_id"=>BSON::ObjectId('54e2775b5a616309fc000000'), "name"=>"testing", "artist"=>"testing", "album"=>"more testing"}] flags=[]
+                              COMMAND      database=supermusic command={:getlasterror=>1, :w=>1} runtime: 51.1350ms
+Redirected to http://localhost:3000/songs/54e2775b5a616309fc000000
+Completed 302 Found in 246ms
+
+
+Started GET "/songs/54e2775b5a616309fc000000" for ::1 at 2015-02-16 15:03:55 -0800
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"54e2775b5a616309fc000000"}
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={"_id"=>BSON::ObjectId('54e2775b5a616309fc000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 45.2320ms
+  Rendered songs/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 102ms (Views: 55.4ms)
+
+
+Started POST "/songs" for ::1 at 2015-02-16 15:06:06 -0800
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhv+xaSS3DROAGABktnztPl3Mu0ks7jqV5tL6Z+hO2vc1xHTfT+tZUa44KwigpIT1bPA+sKhrUw8hNh5YAn6gg==", "song"=>{"name"=>"blah", "artist"=>"blah", "album"=>"blah"}, "commit"=>"Create Song"}
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 48.5310ms
+  MOPED: 107.178.209.43:55690 INSERT       database=supermusic collection=songs documents=[{"_id"=>BSON::ObjectId('54e277de5a616309fc010000'), "name"=>"blah", "artist"=>"blah", "album"=>"blah"}] flags=[]
+                              COMMAND      database=supermusic command={:getlasterror=>1, :w=>1} runtime: 49.4580ms
+Redirected to http://localhost:3000/songs/54e277de5a616309fc010000
+Completed 302 Found in 203ms
+
+
+Started GET "/songs/54e277de5a616309fc010000" for ::1 at 2015-02-16 15:06:06 -0800
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"54e277de5a616309fc010000"}
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={"_id"=>BSON::ObjectId('54e277de5a616309fc010000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 47.9590ms
+  Rendered songs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 100ms (Views: 50.2ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:08:13 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 208.2600ms
+  MOPED: Could not resolve IP for: ds055690-a.mongolab.com:55690 runtime: n/a
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 49.9020ms
+  Rendered songs/index.html.erb within layouts/application (5308.3ms)
+Completed 200 OK in 5468ms (Views: 5453.6ms)
+
+
+Started GET "/songs/new" for ::1 at 2015-02-16 15:08:24 -0800
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (15.3ms)
+  Rendered songs/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 72ms (Views: 71.2ms)
+
+
+Started POST "/songs" for ::1 at 2015-02-16 15:08:31 -0800
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N8Sm8aETqVs8bIaE1luBOPnz5oFx95THC83/CUTo39plCEnneL7YCjTUBilmAOCf1TcUlpflgWFg0myZu0AeMw==", "song"=>{"name"=>"right", "artist"=>"now", "album"=>"yeah"}, "commit"=>"Create Song"}
+  MOPED: 107.178.209.43:55690 INSERT       database=supermusic collection=songs documents=[{"_id"=>BSON::ObjectId('54e2786f5a61630a9c000000'), "name"=>"right", "artist"=>"now", "album"=>"yeah"}] flags=[]
+                              COMMAND      database=supermusic command={:getlasterror=>1, :w=>1} runtime: 46.2460ms
+Redirected to http://localhost:3000/songs/54e2786f5a61630a9c000000
+Completed 302 Found in 49ms
+
+
+Started GET "/songs/54e2786f5a61630a9c000000" for ::1 at 2015-02-16 15:08:31 -0800
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"54e2786f5a61630a9c000000"}
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={"_id"=>BSON::ObjectId('54e2786f5a61630a9c000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 58.3310ms
+  Rendered songs/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 115ms (Views: 54.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:33:00 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 50.8400ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 42.1600ms
+  Rendered songs/index.html.erb within layouts/application (211.9ms)
+Completed 200 OK in 261ms (Views: 260.5ms)
+
+
+Started GET "/songs/new" for ::1 at 2015-02-16 15:33:03 -0800
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (1.7ms)
+  Rendered songs/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 79ms (Views: 78.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:45:11 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (6418.2ms)
+Completed 500 Internal Server Error in 6445ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70265054668980 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3014990592338747991_70265054557220'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:45:20 -0800
+Processing by SongsController#index as HTML
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (4333.1ms)
+Completed 500 Internal Server Error in 4336ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70265054668980 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3014990592338747991_70265054557220'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:57:47 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (8396.4ms)
+Completed 500 Internal Server Error in 8399ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70265074451100 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3014990592338747991_70265054557220'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 15:59:48 -0800
+Processing by SongsController#index as HTML
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  MOPED: Retrying connection attempt 1 more time(s). runtime: n/a
+  MOPED: Could not resolve IP for: env['DBHOST']:env['DBPORT'] runtime: n/a
+  Rendered songs/index.html.erb within layouts/application (7881.9ms)
+Completed 500 Internal Server Error in 7885ms
+
+ActionView::Template::Error (Could not connect to a primary node for replica set #<Moped::Cluster:70265056753180 @seeds=[<Moped::Node resolved_address=nil>]>):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___3014990592338747991_70265054557220'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:07:07 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (26.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:08:29 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:08:32 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (17.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:08:37 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (17.6ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:09:46 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (17.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:12:41 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:13:52 -0800
+
+ActiveRecord::AdapterNotSpecified (database configuration does not specify adapter):
+  activerecord (4.2.0) lib/active_record/connection_adapters/connection_specification.rb:171:in `spec'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.2.0) lib/active_record/railtie.rb:120:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:16:41 -0800
+
+ActiveRecord::AdapterNotSpecified (database configuration does not specify adapter):
+  activerecord (4.2.0) lib/active_record/connection_adapters/connection_specification.rb:171:in `spec'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.2.0) lib/active_record/railtie.rb:120:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (18.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:16:44 -0800
+
+ActiveRecord::AdapterNotSpecified (database configuration does not specify adapter):
+  activerecord (4.2.0) lib/active_record/connection_adapters/connection_specification.rb:171:in `spec'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.2.0) lib/active_record/railtie.rb:120:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (18.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:19:47 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:25:33 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (22.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:26:33 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (18.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:27:18 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:28:21 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (20.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:28:59 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:29:23 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (20.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:29:26 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (16.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:30:22 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 266.5240ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 43.5810ms
+  Rendered songs/index.html.erb within layouts/application (393.2ms)
+Completed 200 OK in 552ms (Views: 535.2ms)
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:30:23 -0800
+
+
+Started GET "/" for ::1 at 2015-02-16 16:30:57 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 220.9450ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 46.2180ms
+  Rendered songs/index.html.erb within layouts/application (373.0ms)
+Completed 500 Internal Server Error in 402ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__1225600913195450635_70148830479340'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:31:38 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 176.7280ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 47.6660ms
+  Rendered songs/index.html.erb within layouts/application (315.8ms)
+Completed 500 Internal Server Error in 336ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___178442594847273889_70200692214760'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:32:05 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:32:49 -0800
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ["config/database.yml"]):
+  railties (4.2.0) lib/rails/application/configuration.rb:110:in `database_configuration'
+  activerecord (4.2.0) lib/active_record/railtie.rb:117:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.2.0) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.2.0) lib/active_record/base.rb:316:in `<module:ActiveRecord>'
+  activerecord (4.2.0) lib/active_record/base.rb:26:in `<top (required)>'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:654:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:645:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Zach/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (20.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:33:00 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 883.3310ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 62.6350ms
+  Rendered songs/index.html.erb within layouts/application (1392.3ms)
+Completed 500 Internal Server Error in 1415ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__1898955952183487338_70220141650000'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (35.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:33:26 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 164.3240ms
+  Rendered songs/index.html.erb within layouts/application (197.9ms)
+Completed 500 Internal Server Error in 219ms
+
+ActionView::Template::Error (no implicit conversion of nil into String):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__2075833471069257573_70162111701060'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:34:23 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 188.3420ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 44.0020ms
+  Rendered songs/index.html.erb within layouts/application (277.3ms)
+Completed 500 Internal Server Error in 298ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__3453778922641932377_70286255244320'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:38:05 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 203.0500ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 47.1170ms
+  Rendered songs/index.html.erb within layouts/application (343.8ms)
+Completed 500 Internal Server Error in 366ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__3806564419671140086_70118911607120'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:39:00 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 205.8120ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 59.5040ms
+  Rendered songs/index.html.erb within layouts/application (779.7ms)
+Completed 500 Internal Server Error in 800ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__196410483114138201_70220816851960'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.7ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:39:41 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 177.8790ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 45.9180ms
+  Rendered songs/index.html.erb within layouts/application (281.6ms)
+Completed 500 Internal Server Error in 303ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb__3978578566544907815_70324386374640'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:44:18 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 326.9340ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 43.4210ms
+  Rendered songs/index.html.erb within layouts/application (517.3ms)
+Completed 500 Internal Server Error in 541ms
+
+ActionView::Template::Error (The operation: #<Moped::Protocol::Query
+  @length=50
+  @request_id=4
+  @response_to=0
+  @op_code=2004
+  @flags=[]
+  @full_collection_name="supermusic.songs"
+  @skip=0
+  @limit=0
+  @selector={}
+  @fields=nil>
+failed with error 13: "not authorized for query on supermusic.songs"
+
+See https://github.com/mongodb/mongo/blob/master/docs/errors.md
+for details about this error.):
+    15:   </thead>
+    16: 
+    17:   <tbody>
+    18:     <% @songs.each do |song| %>
+    19:       <tr>
+    20:         <td><%= song.name %></td>
+    21:         <td><%= song.artist %></td>
+  app/views/songs/index.html.erb:18:in `_app_views_songs_index_html_erb___119442613526387439_70170028916760'
+
+
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/Zach/.rvm/gems/ruby-2.2.0@mygemset/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (27.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-16 16:45:45 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 185.5820ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 41.6050ms
+  Rendered songs/index.html.erb within layouts/application (293.3ms)
+Completed 200 OK in 424ms (Views: 409.7ms)
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:45:45 -0800
+
+
+Started GET "/" for ::1 at 2015-02-16 16:46:20 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 190.2540ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 43.8390ms
+  Rendered songs/index.html.erb within layouts/application (401.5ms)
+Completed 200 OK in 533ms (Views: 518.3ms)
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:46:20 -0800
+
+
+Started GET "/" for ::1 at 2015-02-16 16:47:16 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 199.0520ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 45.7980ms
+  Rendered songs/index.html.erb within layouts/application (352.5ms)
+Completed 200 OK in 485ms (Views: 470.0ms)
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:47:17 -0800
+
+
+Started GET "/" for ::1 at 2015-02-16 16:47:24 -0800
+Processing by SongsController#index as HTML
+  MOPED: 107.178.209.43:55690 COMMAND      database=admin command={:ismaster=>1} runtime: 169.6520ms
+  MOPED: 107.178.209.43:55690 QUERY        database=supermusic collection=songs selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 59.7030ms
+  Rendered songs/index.html.erb within layouts/application (298.6ms)
+Completed 200 OK in 351ms (Views: 350.0ms)
+
+
+Started GET "/assets/application-84f42a14ba850d92c7df3fe4727f207e.css?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/scaffolds-548744f54d2bda4b480acc247d9ff17c.css?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/songs-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/components-4a460f1bedfbcf5eaf864cea62aa4f4f.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/application-3e86c1bc6d3d6efca46a4af558da9468.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
+
+
+Started GET "/assets/react_ujs-e7ae57f0e36228fde92f3ba11130626f.js?body=1" for ::1 at 2015-02-16 16:47:24 -0800
