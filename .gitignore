@@ -9,3 +9,5 @@ build/index.html
 data
 MyClassification
 .ENV
+settings
+cache
