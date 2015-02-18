@@ -11,3 +11,4 @@ MyClassification
 .ENV
 settings
 cache
+spotify_appkey.key
