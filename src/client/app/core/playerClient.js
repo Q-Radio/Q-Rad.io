@@ -4,6 +4,7 @@ function fetchArtistPlaylist(artist,  wandering, variety) {
   var title = "Artist radio for " + artist;
 
   //pass an array of spotify:track:ids
+  //getSong();
   getSpotifyPlayer(['spotify:track:6bLDDvzZUi4v4ORd35Gcgs', "spotify:track:0z5RVVGeSp4ddoZsZLsVWH"], function(player) {
       console.log('got the player');
       $("#all_results").append(player);
@@ -29,11 +30,34 @@ function initUI() {
   $("#go").on("click", function() {
       newArtist();
   });
+  $("#random").on("click", function() {
+      seedSong();
+      function seedSong (){   
+        $.ajax({
+          type: 'POST',
+          url: '/song',
+          data: JSON.stringify(songs),
+          dataType: 'json',
+          contentType: 'application/json',
+          success: function(data){
+            songs.push([data.title,data.artist_name,data.score]);
+            console.log(data.tracks.foreign_id);
+            // $(player).addSpotifyInfoToPlaylist([data.track.foreign_id]);
+            //addSpotifyInfoToPlaylist([data.tracks.foreign_id]);
+            getSpotifyPlayer([data.tracks.foreign_id], function(player) {
+                console.log('got the player');
+                $("#all_results").append(player);
+            });
+          }
+        });
+      };
+  });
 }
 
 $(document).ready(function() {
   initUI();
 });
+
 
 function fidToSpid(fid) {
   console.log('is this happening');
@@ -45,11 +69,28 @@ function getSpotifyPlayer(inPlaylist, callback) {
   var curSong = 0;
   var audio = null;
   var player = createPlayer();
-  var playlist = null;
+  var playlist = [];
 
-  function addSpotifyInfoToPlaylist() {
+
+  function getSong(){   
+    $.ajax({
+      type: 'POST',
+      url: '/song',
+      data: JSON.stringify(songs),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: function(data){
+        songs.push([data.title,data.artist_name,data.score]);
+        console.log(data.tracks.foreign_id);
+        // $(player).addSpotifyInfoToPlaylist([data.track.foreign_id]);
+        addSpotifyInfoToPlaylist([data.tracks.foreign_id]);
+      }
+    });
+  };
+
+  function addSpotifyInfoToPlaylist(additions) {
     var tids = [];
-    inPlaylist.forEach(function(song) {
+    additions.forEach(function(song) {
         var tid = fidToSpid(song);
         console.log(tid);
         tids.push(tid);
@@ -57,12 +98,8 @@ function getSpotifyPlayer(inPlaylist, callback) {
 
     $.getJSON("https://api.spotify.com/v1/tracks/", { 'ids': tids.join(',')}) 
         .done(function(data) {
-            //console.log('sptracks', tids, data);
-            data.tracks.forEach(function(track, i) {
-                inPlaylist[i].spotifyTrackInfo = track;
-            });
 
-            playlist = data.tracks;//filterSongs(inPlaylist);
+            playlist = playlist.concat(filterSongs(data.tracks));//filterSongs(additions);
             showCurSong(true);
             callback(player);
         })
@@ -81,6 +118,8 @@ function getSpotifyPlayer(inPlaylist, callback) {
     songs.forEach(function(song) {
         if (isGoodSong(song)) {
             out.push(song);
+        } else {
+          getSong();
         }
     });
 
@@ -89,7 +128,7 @@ function getSpotifyPlayer(inPlaylist, callback) {
 
   function showSong(song, autoplay) {
     //console.log('song is  in showSong', song);
-    $(player).find(".sp-album-art").attr('src', getBestImage(song.album.images, 300).url);
+    $(player).find(".sp-album-art").attr('src', song.album.images[0].url);
     $(player).find(".sp-title").text(song.title);
     $(player).find(".sp-artist").text(song.artist_name);
     console.log("song preview is ", song.preview_url);
@@ -98,7 +137,6 @@ function getSpotifyPlayer(inPlaylist, callback) {
         audio.get(0).play();
     }
   }
-
 
   function getBestImage(images, maxWidth) {
     var best = images[0];
@@ -113,10 +151,14 @@ function getSpotifyPlayer(inPlaylist, callback) {
   }
 
   function showCurSong(autoplay) {
+    console.log('in showCurSong and playlist is', playlist);
     showSong(playlist[curSong], autoplay);
   }
 
   function nextSong() {
+    getSong();
+    //console.log('in nextSong and song is ', newSong);
+    //addSpotifyInfoToPlaylist([newSong]);
     if (curSong < playlist.length - 1) {
         curSong++;
         showCurSong(true);
@@ -202,7 +244,7 @@ function getSpotifyPlayer(inPlaylist, callback) {
     return main;
   }
 
-  addSpotifyInfoToPlaylist();
+  addSpotifyInfoToPlaylist(inPlaylist);
   return player;
 }
 
