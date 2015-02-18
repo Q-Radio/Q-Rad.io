@@ -6,6 +6,7 @@
     "index": "src/client/index.html",
     "html": "src/client/app/**/*.html",
     "js": "src/client/app/**/*.js",
+    "less": "src/client/app/**/*.less",
     "css": "src/client/app/**/*.css"
   },
   "vendor": {
