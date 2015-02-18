@@ -3,53 +3,59 @@
   var express  = require('express');
   var reloader = require('connect-livereload');
   var mongoose = require('mongoose');
+  var bodyParser = require('body-parser');
 
-  //var spotify = require('./playerTest.js');
   var Song = require(__dirname + '/../seedDBServer/database.js');
   var ENV = require('../../.ENV');
 
   module.exports = function(){
-    console.log('in server');
 
     var app = express();
+
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(reloader());
     app.use(express.static('./build'));
 
     mongoose.connect(ENV.mongo);
 
-    app.get('/test',function(req, res){
+    app.post('/song',function(req, res){
+      console.log('testing', req.body);
 
-      // console.log(req.body);
-      var currentSong = undefined;//get current song from req
-      var currentScore = 73; //get current score of song currently playing
-
-      if(currentSong = undefined){
-        Song.find(function(err,songs){
-          var index = Math.floor(Math.random()*songs.length);
-          
-          var song = songs[index];
-          console.log(song);
-          res.status(200).send(song);
-        })
-      } else {
-        var query = Song.find()
-                    .where('score').gt(currentScore-5).lt(currentScore+5)
-                    // .where('title').ne(currentSong.title)
-                    .sort('-score')
-                    .select('title score artist tracks.foreign_id');
-        query.exec(function(err,songs){
-          var index = Math.floor(Math.random()*songs.length);
-          //checkt to make sure the new song is not the same as the last song
-          var song = songs[index];
-          console.log(song);
-
-          res.status(200).send(song);
-        });
-
+      var playedSongs = req.body;
+      if(playedSongs.length > 0){
+        var currentSong = playedSongs[playedSongs.length-1];
+        var currentScore = currentSong[2]; 
       }
 
-
+      if(currentSong === undefined){
+        Song.find(function(err,songs){
+          var index = Math.floor(Math.random()*songs.length);         
+          var song = songs[index];
+          res.status(200).send(song);
+        });
+      } else {
+        var closestSong = function(distance){
+          distance = distance || 5;
+          var query = Song.find()
+                      .where('score').gt(currentScore - distance).lt(currentScore + distance)
+                      .where('title').ne(currentSong[0])
+                      .select('title score artist_name tracks.foreign_id');
+          query.exec(function(err,songs){
+            if(err) return console.error(err);
+            if(songs.length===0){
+              closestSong(distance*2);
+            } else {
+              var index = Math.floor(Math.random()*songs.length);
+              //checkt to make sure the new song is not the same as the last song
+              var song = songs[index];          
+              res.status(200).send(song);
+            }
+          });
+        }
+        closestSong();
+      }
     })
 
     app.get('/win',function(req, res){
@@ -58,6 +64,7 @@
      res.send(data);
       
     })
+
 
     app.listen(8000, function() {
       console.log('listening on port 8000');

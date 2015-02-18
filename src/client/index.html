@@ -17,9 +17,15 @@
 
 <!-- templates:js -->
 <!-- endinject -->
-<form action="/test" method="get">
- 	 <button type="submit">Query</button>
-</form>
+<button>Get Song</button>
+
+<script>
+	$(function(){
+		$('button').click(function(){
+			getSong();
+		})
+	});
+</script>
 
 <script src="/build/js/core/playerClient.js"></script>
 <link type="text/css" href="/build/css/styles.css" rel="stylesheet" />
