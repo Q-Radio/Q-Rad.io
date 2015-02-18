@@ -36,6 +36,6 @@
     }
   },
   "server": {
-    "root": "../../src/server/index.js"
+    "root": "../../src/server/server.js"
   }
 }

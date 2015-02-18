@@ -20,4 +20,4 @@ Documentation has been provided in several different places:
 
 ## Contributing
 
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution guidelines.
+See [contributing.md](contributing.md) for contribution guidelines.

@@ -3,12 +3,21 @@ var mongoose = require('mongoose');
 //good querying resource
 //http://blog.modulus.io/getting-started-with-mongoose
 
-var Kitten = mongoose.Schema({
+var Song = mongoose.Schema({
       "score":Number,
       "artist_id":String,
       "artist_name":String,
       "title":String,
       "id":String,
+      "tracks": {  
+         "album_type":String,
+         "album_date":Date,
+         "foreign_release_id":String,
+         "catalog":String,
+         "foreign_id":String,
+         "album_name":String,
+         "id":String
+      },
       "audio_summary":{  
          "key":Number,
          "analysis_url":String,
@@ -29,4 +38,4 @@ var Kitten = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Kitten', Kitten);
+module.exports = mongoose.model('Song', Song);
