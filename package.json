@@ -35,7 +35,9 @@
     "reactify": "^1.0.0",
     "source": "0.0.3",
     "casperjs": "~1.1.0-beta3",
-    "phantomjs": "~1.9.15"
+    "phantomjs": "~1.9.15",
+    "coveralls": "~2.11.2",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "devDependencies": {
     "connect-livereload": "~0.5.3",
@@ -61,6 +63,7 @@
     "karma-mocha": "~0.1.10",
     "karma-chai": "~0.1.0",
     "karma-sinon": "~1.0.4",
-    "karma-coverage": "~0.2.7"
+    "karma-coverage": "~0.2.7",
+    "karma-firefox-launcher": "~0.1.4"
   }
 }
