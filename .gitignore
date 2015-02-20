@@ -5,7 +5,6 @@ build/css/*
 build/js/core/*
 build/templates/core/views/*
 build/vendor/*
-build/index.html
 data
 MyClassification
 .ENV
