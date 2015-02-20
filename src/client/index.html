@@ -6,6 +6,9 @@
 <!-- endinject -->
 
 <!-- app:css -->
+<!-- <script src="http://www.rdio.com/api/api.js?client_id=ndS-G2UAc7dQj90nkoYW2w"></script>
+<script src="http://www.rdio.com/media/api/api-impl.a8235d99ad22e2ce0a7904ec3754c1a7.js"></script> -->
+
 <!-- endinject -->
 </head>
 <body>
@@ -17,18 +20,20 @@
 
 <!-- templates:js -->
 <!-- endinject -->
-<button>Get Song</button>
+<button class='getSong'>Get Song</button>
+<button class='randomSong'>Random Song</button>
 
 <script>
 	$(function(){
-		$('button').click(function(){
+		$('.getSong').click(function(){
 			getSong();
+    })
+    $('.randomSong').click(function(){
+      getRandomSong();
 		})
 	});
 </script>
 
-<script src="/build/js/core/playerClient.js"></script>
-<link type="text/css" href="/build/css/styles.css" rel="stylesheet" />
 <link type="text/css" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
   <div class='container font-light'>
    <div id='content' class="col-md-offset-2 col-md-8">

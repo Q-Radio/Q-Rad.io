@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,12 @@
     "livereload": "^0.3.6",
     "material-ui": "^0.7.0",
     "mongoose": "~3.8.23",
-    "node-libspotify": "^0.1.0",
-    "node-spotify": "^0.7.0",
     "react": "^0.12.2",
     "react-tap-event-plugin": "^0.1.4",
     "reactify": "^1.0.0",
-    "source": "0.0.3"
+    "source": "0.0.3",
+    "casperjs": "~1.1.0-beta3",
+    "phantomjs": "~1.9.15"
   },
   "devDependencies": {
     "connect-livereload": "~0.5.3",
@@ -49,6 +49,16 @@
     "gulp-livereload": "~3.7.0",
     "gulp-uglify": "~1.1.0",
     "gulp-bower": "0.0.10",
-    "gulp-nodemon": "~1.0.5"
+    "gulp-nodemon": "~1.0.5",
+    "gulp-casperjs": "0.0.5",
+    "vinyl-source-stream": "~1.0.0",
+    "gulp-mocha": "~2.0.0",
+    "karma": "~0.12.31",
+    "gulp-karma": "0.0.4",
+    "karma-chrome-launcher": "~0.1.7",
+    "karma-mocha": "~0.1.10",
+    "karma-chai": "~0.1.0",
+    "karma-sinon": "~1.0.4",
+    "karma-coverage": "~0.2.7"
   }
 }
