@@ -52,7 +52,6 @@
   .task('test', 
     $.sequence( 'mocha:dev'
               , 'karma:dev'
-              , 'server:dev'
               , 'casper:dev'));
 
   //================BUILD
