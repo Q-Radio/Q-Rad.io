@@ -15,3 +15,5 @@ spotify_appkey.key
 src/dist/
 src/server/log/
 src/server/tmp/
+.elasticbeanstalk/
+Archive.zip
