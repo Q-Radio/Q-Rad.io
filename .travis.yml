@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install -g gulp-cli
+- npm install -g bower
+- bower install
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+env:
+  global:
+    secure: Ip5xt4htuuijSZapvYwi6Z6ENm5nCF+1aHl7cP9eLPf7kvJpy0ytRIOIwjtG7OrymnCdbDkfDLjeGy81e/vir8xMrqgYiPMlJEQoapO2AeE1Rk9aoMT6H+KUsIkEOA/bolNUHG/3tpD7pTG8Rc5Ru6wgWoDt5gnN2UEXcQZJaj0=

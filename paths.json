@@ -37,7 +37,8 @@
     }
   },
   "server": {
-    "root": "../../src/server/server.js"
+    "forCasper": "../../src/server/server.js",
+    "root": "src/server/server.js"
   },
   "tests": {
     "integration": "test/integration/integration.js",
