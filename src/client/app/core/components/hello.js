@@ -8,13 +8,7 @@ var track_url = 'https://embed.spotify.com/?uri=spotify:track:'
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
 
-
-
-
-
-
-
-
+var ContribForm = require('./splash.js');
 
 var React = require('react'),
   mui = require('material-ui'),
@@ -100,7 +94,7 @@ var App = React.createClass({
           <button>Contribute!</button>
         </div>
         <div>Yaya!</div>
-        <SomeAwesomeComponent />
+       <ContribForm />
       </div>
     )
   }
