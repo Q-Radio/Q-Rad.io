@@ -6,7 +6,7 @@
   var bodyParser = require('body-parser');
   var requestHandler = require('./requestHandler.js');
 
-  var ENV = require('../../.ENV');
+  var ENV = process.env.mongo || require('../../.ENV');
 
 
   module.exports = function(){
@@ -26,7 +26,9 @@
     app.post('/random',requestHandler.getRandomSong);
 
 
-    app.listen(8000, function() {
+    var port = process.env.PORT || 8000;
+
+    app.listen(port, function() {
       console.log('listening on port 8000');
     });
   }
