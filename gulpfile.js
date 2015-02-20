@@ -6,6 +6,8 @@
   var gulp = require('gulp');
   var $    = require('gulp-load-plugins')({lazy:false});
   var del  = require('del');
+
+  //for React
   var browserify = require('browserify');
   var reactify = require('reactify');
   var source = require('vinyl-source-stream');
@@ -30,6 +32,9 @@
       .pipe(livereload());
   });
 
+
+
+
   //================DEV
 
   gulp
@@ -39,6 +44,17 @@
                 , 'start:dev'
                 ))
 
+  //===============TEST 
+  gulp
+  .task('casper:dev', tasks.casper.dev)
+  .task('mocha:dev' , tasks.mocha.dev)
+  .task('karma:dev' , tasks.karma.dev)
+  .task('test', 
+    $.sequence( 'mocha:dev'
+              , 'karma:dev'
+              , 'server:dev'
+              , 'casper:dev'));
+
   //================BUILD
   gulp
     .task( 'js:dev'  , tasks.js.dev)
@@ -47,10 +63,10 @@
     .task( 'html:dev', tasks.html.dev)
     .task( 'build:dev',
       $.sequence( 'js:dev'
-                , 'less:dev'
+                // , 'less:dev'
                 , 'css:dev'
                 , 'html:dev'
-                ))
+                ));
 
   //=================START
   gulp
@@ -63,7 +79,7 @@
                 , 'inject:dev'
                 , 'server:dev'
                 , 'watch:dev'
-                ))
+                ));
 
   //==================CLEAN
 

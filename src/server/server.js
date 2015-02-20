@@ -4,9 +4,10 @@
   var reloader = require('connect-livereload');
   var mongoose = require('mongoose');
   var bodyParser = require('body-parser');
+  var requestHandler = require('./requestHandler.js');
 
-  var Song = require(__dirname + '/../seedDBServer/database.js');
   var ENV = require('../../.ENV');
+
 
   module.exports = function(){
 
@@ -20,50 +21,9 @@
 
     mongoose.connect(ENV.mongo);
 
-    app.post('/song',function(req, res){
-      console.log('testing', req.body);
+    app.post('/song',requestHandler.getRelatedSong);
 
-      var playedSongs = req.body;
-      if(playedSongs.length > 0){
-        var currentSong = playedSongs[playedSongs.length-1];
-        var currentScore = currentSong[2]; 
-      }
-
-      if(currentSong === undefined){
-        Song.find(function(err,songs){
-          var index = Math.floor(Math.random()*songs.length);         
-          var song = songs[index];
-          res.status(200).send(song);
-        });
-      } else {
-        var closestSong = function(distance){
-          distance = distance || 5;
-          var query = Song.find()
-                      .where('score').gt(currentScore - distance).lt(currentScore + distance)
-                      .where('title').ne(currentSong[0])
-                      .select('title score artist_name tracks.foreign_id');
-          query.exec(function(err,songs){
-            if(err) return console.error(err);
-            if(songs.length===0){
-              closestSong(distance*2);
-            } else {
-              var index = Math.floor(Math.random()*songs.length);
-              //checkt to make sure the new song is not the same as the last song
-              var song = songs[index];          
-              res.status(200).send(song);
-            }
-          });
-        }
-        closestSong();
-      }
-    })
-
-    app.get('/win',function(req, res){
-     var data = Song.find();
-     //console.log(data);
-     res.send(data);
-      
-    })
+    app.post('/random',requestHandler.getRandomSong);
 
 
     app.listen(8000, function() {
