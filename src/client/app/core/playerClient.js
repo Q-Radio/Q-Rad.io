@@ -37,6 +37,7 @@ function spotifyCall(songs){
   });
   $.getJSON("https://api.spotify.com/v1/tracks/", {'ids': results.join(',')}) 
     .done(function(data) {
+      console.log(data.tracks);
       cleanPlaylist(data.tracks);
     })
     .error( function() {

@@ -23,7 +23,11 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'karma.conf.js'
+      'karma.conf.js',
+      'build/js/core/MainApp.js',
+      'build/js/core/main.js',
+      'src/client/app/core/MainApp.js',
+      'src/client/app/core/main.js'
     ],
 
 
