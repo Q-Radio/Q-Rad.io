@@ -7,7 +7,6 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['mocha', 'chai'],
@@ -24,8 +23,6 @@ module.exports = function(config) {
     // list of files to exclude
     exclude: [
       'karma.conf.js',
-      'build/js/core/MainApp.js',
-      'build/js/core/main.js',
       'src/client/app/core/MainApp.js',
       'src/client/app/core/main.js'
     ],
@@ -62,7 +59,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
@@ -75,7 +72,8 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-chai',
       'karma-sinon',
-      'karma-chrome-launcher'
+      'karma-chrome-launcher',
+      'karma-firefox-launcher'
     ]
   });
 };
