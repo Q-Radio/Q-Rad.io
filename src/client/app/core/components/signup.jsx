@@ -33,7 +33,7 @@ var Signup = React.createClass({
               ref="email" className="signup-input" floatingLabelText="Email" />
             <TextField
               ref="password" className="signup-input" floatingLabelText="Password" />
-            <RaisedButton onClick={this.handleClick} className="signup-button" label="Sign Up" secondary={true} />z
+            <RaisedButton onClick={this.handleClick} className="signup-button" label="Sign Up" secondary={true} />
           </form>
         </div>
     )
