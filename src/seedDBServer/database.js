@@ -35,6 +35,9 @@ var Song = mongoose.Schema({
          "valence":Number,
          "danceability":Number
       },
+      "preview_url":String,
+      "spotify_url":String,
+      "image": String
 
 });
 

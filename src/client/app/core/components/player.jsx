@@ -24,7 +24,8 @@ var Player = React.createClass({
         </div>
         <PlayerControls />
         <audio ref="audio" src={this.props.songAudio}></audio>
-        <Playlist />
+        <Playlist className="playlist" playlist={this.props.playlist}/>
+        <Playlist className="futureList" playlist={this.props.upcomingSongs}/>
       </div>
     )
   }

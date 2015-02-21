@@ -21,9 +21,14 @@ app.use(express.static(mypath));
 
 mongoose.connect(mongo);
 
+app.get('/training-worker.js',requestHandler.trainingWorker);
+
+
 app.post('/song',requestHandler.getRelatedSong);
 
 app.post('/random',requestHandler.getRandomSong);
+
+var port = process.env.PORT || 8000;
 
 
 app.listen(port, function() {

@@ -1,10 +1,12 @@
 var Player = function(){
   this.playlist = [];
+  this.futureList = [];
   this.currentSong = 0;
 
   //builds the hmtl for the player, append main to the dom
   this.main = $("<div class='main'></div>");
-  this.list = $('<div class="list">Playlist</div>')
+  this.list = $('<div class="list">Playlist</div>');
+  this.future = $('<div class="futureList">Future List</div>');
   this.divPlayer = $("<div class='sp-player'></div>");
   this.img = $("<img class='sp-album-art'>");
   this.info  = $("<div class='sp-info'>");
@@ -29,6 +31,7 @@ var Player = function(){
 
   this.main.append(this.divPlayer);
   this.main.append(this.list);
+  this.main.append(this.future);
 
 }
 
@@ -100,24 +103,40 @@ Player.prototype.addListeners = function(){
 Player.prototype.displayList = function(){
   this.list.find('ul').remove();
   var ul = $('<ul></ul>')
-  for (var i = 0; i < this.playlist.length -1; i++){
+  for (var i = 0; i < this.playlist.length; i++){
     ul.append($('<li>' + this.playlist[i].name + ' ' + this.playlist[i].artists[0].name + '</li>'));
   }
   this.list.append(ul);
 }
 
+Player.prototype.displayFutureList = function(){
+  this.future.find('ul').remove();
+  var ul = $('<ul></ul>')
+  for (var i = 0; i < this.futureList.length; i++){
+    ul.append($('<li>' + this.futureList[i].name + ' ' + this.futureList[i].artists[0].name + '</li>'));
+  }
+  this.future.append(ul);
+}
+
+
+
 Player.prototype.addSong = function(song){
   this.playlist = this.playlist.concat(song);
-    //this.displayList();
-
-  if (this.playlist.length === 1){
-    this.displayList();
-    this.showSong(false);
-  } else {
-    //this.nextSong();
-    this.displayList();
-  }
+  this.displayList();
+  // if (this.playlist.length === 1){
+  //   this.displayList();
+  //   this.showSong(false);
+  // } else {
+  //   //this.nextSong();
+  //   this.displayList();
+  // }
 }
+
+Player.prototype.addFutureSong = function(song){
+  this.futureList = this.futureList.concat(song);
+  this.displayFutureList();
+}
+
 
 Player.prototype.showSong = function(autoplay) {
   var song = this.playlist[this.currentSong];
@@ -136,3 +155,4 @@ Player.prototype.songsLeft = function(){
 }
 
 
+// module.exports.Player = Player;

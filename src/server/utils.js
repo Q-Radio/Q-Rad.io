@@ -8,10 +8,13 @@ module.exports.randomSong = function(songs){
 }
 
 module.exports.queryNoRepeats = function(playedSongs){
+  var titles = []
   var query = Song.find();
-  query.select('title score artist_name tracks.foreign_id');
+  var queryItems = 'title score artist_name tracks.foreign_id audio_summary preview_url spotify_url image';
+  query.select(queryItems);
   for(var i = 0; i<playedSongs.length; i++){
-    query.where('title').ne(playedSongs[i][0]);
+    titles.push(playedSongs[i][0]);
   }
+  query.where('title').nin(titles);
   return query;
 }

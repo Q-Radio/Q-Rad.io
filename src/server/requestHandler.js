@@ -1,4 +1,5 @@
 var utils = require('./utils.js');
+var path = require('path');
 
 module.exports.getRelatedSong = function(req, res){
 
@@ -19,7 +20,7 @@ module.exports.getRelatedSong = function(req, res){
 
   } else {
     var closestSong = function(distance){
-      distance = distance || 5;
+      distance = distance || 3;
       var query = utils.queryNoRepeats(playedSongs);
       query.where('score').gt(currentScore - distance).lt(currentScore + distance);
 
@@ -49,4 +50,10 @@ module.exports.getRandomSong = function(req, res){
   });
 }
 
+module.exports.discoverArtist = function(req, res){
+  var artist = req.body;
+}
 
+module.exports.trainingWorker = function(req, res){
+  res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.jsx'));
+}
