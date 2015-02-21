@@ -87,8 +87,6 @@ function addTrainingData(){
   }
 }
 
-
-
 var AppActions = {
 
   updateFutureList: function(){
@@ -198,7 +196,6 @@ var AppActions = {
 
   star: function(stars){
     rating = stars/4;
-
     AppDispatcher.dispatch({
       actionType: AppConstants.STAR,
       text: 'STARRED'
