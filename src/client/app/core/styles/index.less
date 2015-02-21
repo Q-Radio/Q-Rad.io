@@ -1,0 +1,52 @@
+@import "../../../../../node_modules/material-ui/src/less/scaffolding.less";
+
+.shape{
+    display:inline-block;
+    width:200px;
+    height:200px;
+    background:@deep-orange-900;
+    margin:20px;
+    float: right;
+    border-radius: 300px;
+    border-style: solid;
+    border-width: 20px;
+}
+
+.header-btn{
+  margin-left: 5px;
+}
+
+.header-form{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.playlist{
+  background:@deep-orange-900;
+  display:inline-block;
+  width:250px;
+  height:400px;
+  float: left;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  padding-top: 5px;
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.upcoming{
+  .playlist;
+  float: right;
+}

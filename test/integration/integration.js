@@ -1,8 +1,8 @@
 /* globals casper, document */
-casper.test.begin('App is setup correctly', 2, function suite(test) {
+casper.test.begin('App is setup correctly', 0, function suite(test) {
   casper.start('http://localhost:8000/', function() {
-    test.assertExists('.getSong', 'Button should exist');
-    test.assertExists('.randomSong', 'Div should exist');
+    test.assertExists('#app', 'main div should exist');
+    test.done();
   });
 
   casper.run(function() {

@@ -7,24 +7,23 @@ $(document).ready(function() {
   var Router = require('react-router');
   var mui = require('material-ui');
   var Signup = require('./components/signup.jsx');
+  var Header = require('./components/header.jsx');
+  var Player = require('./components/player.jsx');
+  var Contribute = require('./components/contribute.jsx');
   var Route = Router.Route;
   var RouteHandler = Router.RouteHandler;
   var TextField = mui.TextField;
-   var RaisedButton = mui.RaisedButton;
+  var RaisedButton = mui.RaisedButton;
 
   var Link = Router.Link;
   var App = React.createClass({
 
-
-
-
     render: function () {
       return (
-        <div>
-          <li><Link to="signup">Sign up</Link></li>
-          <h1> hi </h1>
-          <RaisedButton className="login-button" label="Log In" secondary={true} />
-            <RouteHandler />
+        <div className="centered">
+          <Header />
+          <Player />
+          <RouteHandler />
         </div>
       )
     }
@@ -33,6 +32,7 @@ $(document).ready(function() {
   var routes = (
     <Route name="root" path="/" handler={App}>
       <Route name="signup" handler={Signup}/>
+      <Route name="contribute" handler={Contribute}/>
     </Route>
   );
 
