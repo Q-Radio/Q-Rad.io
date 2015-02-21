@@ -2,6 +2,7 @@
 node_modules
 lib/bower_components
 build/css/*
+./build/js/main.js
 build/js/core/*
 build/templates/core/views/*
 build/vendor/*
