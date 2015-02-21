@@ -4,7 +4,7 @@ var Header = require('./header.jsx');
 var Player = require('./player.jsx'); 
 var AppStore = require('./../stores/AppStore.jsx');
 var AppActions = require('./../actions/AppActions.jsx');
-
+var Loading = require('./loading.jsx')
 
 
 
