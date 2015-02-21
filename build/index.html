@@ -7,6 +7,7 @@
 
 <!-- app:css -->
 <link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/core/styles/main.css">
 <!-- endinject -->
 </head>
 <body>
@@ -14,28 +15,12 @@
 <script src="/vendor/jquery/dist/jquery.js"></script>
 <!-- endinject -->
 
-<!-- app:js -->
-<script src="/js/core/PlayerClass.js"></script>
-<script src="/js/core/app.js"></script>
-<script src="/js/core/playerClient.js"></script>
-<script src="/js/core/rdio.js"></script>
-<!-- endinject -->
 
 <!-- templates:js -->
 <!-- endinject -->
 <button class='getSong'>Get Song</button>
 <button class='randomSong'>Random Song</button>
 
-<script>
-	$(function(){
-		$('.getSong').click(function(){
-			getSong();
-    })
-    $('.randomSong').click(function(){
-      getRandomSong();
-		})
-	});
-</script>
 
 <link type="text/css" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
   <div class='container font-light'>
@@ -52,9 +37,31 @@
     </div>
     <div id="info"> </div>
     <div id="all_results"> </div>
-   
+    <div id="app"></div>
   </div>
  </div>
+
+<!-- app:js -->
+<script src="/js/core/PlayerClass.js"></script>
+<script src="/js/core/app.js"></script>
+<script src="/js/core/playerClient.js"></script>
+<script src="/js/core/rdio.js"></script>
+<!-- endinject -->
+
+<!-- main:js -->
+<script src="/js/main.js"></script>
+<!-- endinject -->
+
+<script>
+  $(function(){
+    $('.getSong').click(function(){
+      getSong();
+    })
+    $('.randomSong').click(function(){
+      getRandomSong();
+    })
+  });
+</script>
 
 </body>
 </html>

@@ -15,24 +15,12 @@
 <!-- vendor:js -->
 <!-- endinject -->
 
-<!-- app:js -->
-<!-- endinject -->
 
 <!-- templates:js -->
 <!-- endinject -->
 <button class='getSong'>Get Song</button>
 <button class='randomSong'>Random Song</button>
 
-<script>
-	$(function(){
-		$('.getSong').click(function(){
-			getSong();
-    })
-    $('.randomSong').click(function(){
-      getRandomSong();
-		})
-	});
-</script>
 
 <link type="text/css" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
   <div class='container font-light'>
@@ -49,9 +37,26 @@
     </div>
     <div id="info"> </div>
     <div id="all_results"> </div>
-   
+    <div id="app"></div>
   </div>
  </div>
+
+<!-- app:js -->
+<!-- endinject -->
+
+<!-- main:js -->
+<!-- endinject -->
+
+<script>
+  $(function(){
+    $('.getSong').click(function(){
+      getSong();
+    })
+    $('.randomSong').click(function(){
+      getRandomSong();
+    })
+  });
+</script>
 
 </body>
 </html>

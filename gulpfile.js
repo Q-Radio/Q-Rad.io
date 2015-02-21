@@ -19,22 +19,6 @@
 
   var tasks = lib.tasks;
 
-  //================COMPILE
-  //this section will be refactored to comform to the rest of the gulpfile structure
-
-  gulp.task('compile', function () {
-    var b = browserify();
-    b.transform(reactify);
-    b.add('./hello.js'); // selects the file that should be browserified
-    return b.bundle()
-      .pipe(source('hello.js')) 
-      .pipe(gulp.dest('./src/dist/bundle.js')) // link this file to html to run require() statements
-      .pipe(livereload());
-  });
-
-
-
-
   //================DEV
 
   gulp
@@ -56,15 +40,17 @@
 
   //================BUILD
   gulp
-    .task( 'js:dev'  , tasks.js.dev)
-    .task( 'less:dev', tasks.less.dev)
-    .task( 'css:dev' , tasks.css.dev)
-    .task( 'html:dev', tasks.html.dev)
+    .task( 'js:dev'       , tasks.js.dev)
+    .task( 'less:dev'     , tasks.less.dev)
+    .task( 'css:dev'      , tasks.css.dev)
+    .task( 'html:dev'     , tasks.html.dev)
+    .task( 'compile:dev'  , tasks.compile.dev)
     .task( 'build:dev',
       $.sequence( 'js:dev'
-                // , 'less:dev'
+                , 'less:dev'
                 , 'css:dev'
                 , 'html:dev'
+                , 'compile:dev'
                 ));
 
   //=================START
