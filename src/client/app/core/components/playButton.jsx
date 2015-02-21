@@ -19,8 +19,6 @@ var PlayButton  = React.createClass({
     }
   },
 
-
-
   componentDidMount: function() {
     this.player = this.refs.audio.getDOMNode();
     this.starting = true;
@@ -36,13 +34,11 @@ var PlayButton  = React.createClass({
     }).bind(this));
   },
 
-
-
   render: function() {
     return (
       <span>
         <audio ref="audio" className="audio" src={this.props.songAudio} autoPlay='true' />
-        <FloatingActionButton iconClassName="muidocs-icon-action-grade" secondary={true} mini={true} onClick={this.togglePlay} />
+        <span className="fa fa-play fa-2x controls" onClick={this.togglePlay}> </span>
       </span>
     )
   }

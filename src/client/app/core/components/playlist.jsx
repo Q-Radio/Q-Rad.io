@@ -36,9 +36,9 @@ var Playlist = React.createClass({
       );
     }.bind(this));
     return (
-      <div className={this.props.className}>
+      <span className={this.props.className}>
           {items}
-      </div>
+      </span>
     )
   }
 })

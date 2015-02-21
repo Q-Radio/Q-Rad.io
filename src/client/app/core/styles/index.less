@@ -1,15 +1,16 @@
 @import "../../../../../node_modules/material-ui/src/less/scaffolding.less";
+@import "../../../../../node_modules/font-awesome/less/font-awesome.less";
 
-.shape{
-    display:inline-block;
-    width:200px;
-    height:200px;
-    background:@deep-orange-900;
-    margin:20px;
-    float: right;
-    border-radius: 300px;
-    border-style: solid;
-    border-width: 20px;
+body, html{
+  background-color: @light-blue-500 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  background-color: @light-blue-500;
+  width: 100%;
+  height: 100%;
 }
 
 .header-btn{
@@ -25,34 +26,59 @@
   text-align: center;
 }
 
-.fullsize {
-  width: 2000px
-
+.sp-info{
+  width: 300px;
+  margin: 0 auto;
+  background-color: @light-blue-A400
 }
 
+.sp-title{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sp-artist{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.controls{
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  border-width: 3px;
+  background: @light-green-700;
+}
 
 .playlist {
-  background:@deep-orange-900;
+  background:@amber-A200;
   display:inline-block;
   width:500px;
-  height:400px;
+  height:410px;
   float: left;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
   padding-top: 5px;
+  padding-left: 10px;
 }
 
-.futureList{
-  background:@deep-orange-900;
-  display:inline-block;
-  width:500px;
-  height:400px;
+.loading{
+  margin-top: 27%;
+}
+
+.playlist-item{
+  width: 100%;
+  height: 41px;
+}
+
+.playlist-item-button{
   float: right;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  padding-top: 5px;  
+  margin-left: 7px;
+  padding-right: 10px;
 }
 
 .example-enter {
@@ -64,7 +90,7 @@
   opacity: 1;
 }
 
-.upcoming{
+.futureList{
   .playlist;
   float: right;
 }
