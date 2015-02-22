@@ -1,0 +1,8 @@
+var React = require('react');
+var people= [...];
+
+var Example = React.createClass({
+  <h1>Hello</h1>
+});
+
+React.render(Example, document.body);

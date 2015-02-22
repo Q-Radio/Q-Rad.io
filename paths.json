@@ -7,7 +7,8 @@
     "html": "src/client/app/**/*.html",
     "js": "src/client/app/**/*.js",
     "less": "src/client/app/**/*.less",
-    "css": "src/client/app/**/*.css"
+    "css": "src/client/app/**/*.css",
+    "compile": "./src/client/app/core/main.jsx"
   },
   "vendor": {
     "root": "build/vendor",
@@ -24,8 +25,9 @@
   "build": {
     "root": "build",
     "all": "build/**/*",
+    "main":"build/js/main.js",
     "index": "build/index.html",
-    "js": "build/js/**/*",
+    "js": "build/js/core/*.js",
     "css": "build/css/**/*",
     "vendor": "build/vendor/**/*",
     "templates": "build/templates/**/*",

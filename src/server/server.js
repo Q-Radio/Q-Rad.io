@@ -1,4 +1,3 @@
-(function() {
 	'use strict';
   var express  = require('express');
   var reloader = require('connect-livereload');
@@ -7,9 +6,6 @@
   var requestHandler = require('./requestHandler.js');
 
   var ENV = process.env.mongo || require('../../.ENV');
-
-
-  module.exports = function(){
 
     var app = express();
 
@@ -31,8 +27,8 @@
     app.listen(port, function() {
       console.log('listening on port 8000');
     });
-  }
-})();
+
+module.exports = app;
 
 
 
