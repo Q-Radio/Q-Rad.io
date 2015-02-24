@@ -31,6 +31,7 @@
     "http": "0.0.0",
     "less": "^2.4.0",
     "livereload": "^0.3.6",
+    "material-design-icons": "^1.0.1",
     "material-ui": "^0.7.0",
     "mocha-lcov-reporter": "0.0.1",
     "mongoose": "~3.8.23",

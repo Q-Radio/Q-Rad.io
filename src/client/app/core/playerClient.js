@@ -1,19 +1,6 @@
 
   //getSpotifyPlayer(['spotify:track:6bLDDvzZUi4v4ORd35Gcgs', "spotify:track:0z5RVVGeSp4ddoZsZLsVWH"], function(player) 
 
-function initUI() {
-  $("#artist").on('keydown', function(evt) {
-      if (evt.keyCode == 13) {
-          //newArtist();
-      }
-  });
-  $("#go").on("click", function() {
-      //newArtist();
-  });
-  $("#random").on("click", function() {
-          
-  });
-}
 player = new Player();
 
 function getSong(){   
@@ -60,7 +47,7 @@ function cleanPlaylist(list){
 }
 
 $(document).ready(function() {
-  initUI();
+
   $("#all_results").append(player.main);
   player.addListeners();
 
