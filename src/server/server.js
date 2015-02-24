@@ -1,35 +1,36 @@
-	'use strict';
-  var express  = require('express');
-  var reloader = require('connect-livereload');
-  var mongoose = require('mongoose');
-  var bodyParser = require('body-parser');
-  var requestHandler = require('./requestHandler.js');
+'use strict';
+var express  = require('express');
+var reloader = require('connect-livereload');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var Path = require('path');
+var requestHandler = require('./requestHandler.js');
 
-  var ENV = process.env.mongo || require('../../.ENV');
+var mongo = process.env.mongo || require('../../.ENV').mongo;
+var port = process.env.PORT || 8000;
 
-    var app = express();
+var app = express();
 
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.use(reloader());
-    app.use(express.static('./build'));
+app.use(reloader());
+var mypath = Path.resolve(__dirname,'../../build');
+console.log('path is ', mypath);
+app.use(express.static(mypath));
 
-    mongoose.connect(ENV.mongo);
+mongoose.connect(mongo);
 
-    app.post('/song',requestHandler.getRelatedSong);
+app.post('/song',requestHandler.getRelatedSong);
 
-    app.post('/random',requestHandler.getRandomSong);
+app.post('/random',requestHandler.getRandomSong);
 
 
-    var port = process.env.PORT || 8000;
-
-    app.listen(port, function() {
-      console.log('listening on port 8000');
-    });
+app.listen(port, function() {
+  console.log('listening on port ', port);
+});
 
 module.exports = app;
-
 
 
 // app.get('/splash', function(req, res){
