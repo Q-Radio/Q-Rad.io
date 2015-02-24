@@ -16,7 +16,6 @@ var Header = React.createClass({
           <span> Choose the song: 
             <input type="text" size="34" placeholder='select your song brotha!'></input>
           </span>
-          <button className="header-btn"></button>
           <RaisedButton className="header-btn" value="go" id="go" name="go" label="Go" primary={true} />
           <RaisedButton className="header-btn" label="Random" primary={true} />
         </form>

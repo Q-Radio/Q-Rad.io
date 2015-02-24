@@ -4,17 +4,8 @@
 
 var React = require('react');
 var mui = require('material-ui');
-var SvgIcon = mui.SvgIcon;
+var PlayerControls = require('./player-controls.jsx');
 
-var ActionHome = React.createClass({
-  render: function() {
-    return (
-      <SvgIcon {...this.props}>
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
-      </SvgIcon>
-    );
-  }
-});
 
 var Player = React.createClass({
   handleClick: function (e) {
@@ -132,8 +123,13 @@ var Player = React.createClass({
   render: function() {
     return (
       <div>
-        <ActionHome />
-        <div className="shape"><h1>yooo</h1></div>
+        <img onClick={this.handleClick} className="sp-album-art"></img>
+        <div className='sp-info'>
+          <div className='sp-title'></div>
+          <div className='sp-artist'></div>
+        </div>
+        <PlayerControls />
+        <audio src={this.playlist[this.currentSong]}>{this.props.src}</audio>
       </div>
     )
   }

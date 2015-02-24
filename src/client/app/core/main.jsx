@@ -8,6 +8,7 @@ $(document).ready(function() {
   var mui = require('material-ui');
   var Signup = require('./components/signup.jsx');
   var Header = require('./components/header.jsx');
+  var Player = require('./components/player.jsx');
   var Contribute = require('./components/contribute.jsx');
   var Route = Router.Route;
   var RouteHandler = Router.RouteHandler;
@@ -19,8 +20,9 @@ $(document).ready(function() {
 
     render: function () {
       return (
-        <div>
+        <div className="centered">
           <Header />
+          <Player />
           <RouteHandler />
         </div>
       )
