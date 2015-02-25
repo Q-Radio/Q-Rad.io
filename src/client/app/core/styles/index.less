@@ -24,3 +24,29 @@
 .centered{
   text-align: center;
 }
+
+.playlist{
+  background:@deep-orange-900;
+  display:inline-block;
+  width:250px;
+  height:400px;
+  float: left;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  padding-top: 5px;
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.upcoming{
+  .playlist;
+  float: right;
+}
