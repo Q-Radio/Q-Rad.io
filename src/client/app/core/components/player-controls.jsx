@@ -5,6 +5,7 @@
 var React = require('react');
 var mui = require('material-ui');
 var FloatingActionButton = mui.FloatingActionButton;
+//var actions = require('./../actions/AppActions.jsx');
 
 var PlayerControls = React.createClass({
 
@@ -12,7 +13,7 @@ var PlayerControls = React.createClass({
     return (
       <div className="centered btn-group sp-controls'">
         <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} />
-        <FloatingActionButton iconClassName="muidocs-icon-action-grade" secondary={true} mini={true} />
+        <FloatingActionButton iconClassName="muidocs-icon-action-grade" secondary={true} mini={true}  />
         <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} />
       </div>
     )
