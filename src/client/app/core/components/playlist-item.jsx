@@ -8,7 +8,7 @@ var FloatingActionButton = mui.FloatingActionButton;
 
 var PlaylistItem = React.createClass({
   temp: function(){
-    console.log('you clicked a button');
+    // console.log('you clicked a button');
   },
 
   render: function() {

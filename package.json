@@ -27,7 +27,6 @@
     "express": "~4.11.2",
     "gulp-less": "^3.0.0",
     "connect-livereload": "^0.5.3",
-    "express": "~4.11.2",
     "http": "0.0.0",
     "less": "^2.4.0",
     "livereload": "^0.3.6",
@@ -40,10 +39,16 @@
     "react-router": "^0.12.0",
     "react-tap-event-plugin": "^0.1.4",
     "reactify": "^1.0.0",
-    "source": "0.0.3"
+    "source": "0.0.3",
+    "path": "~0.11.14",
+    "bluebird": "~2.9.12",
+    "object-assign": "~2.0.0",
+    "flux": "~2.0.1",
+    "keymirror": "~0.1.1",
+    "brain": "~0.7.0"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": "~3.8.11",
     "gulp-less": "^3.0.0",
     "del": "~1.1.1",
     "gulp-plumber": "~0.6.6",
@@ -51,7 +56,6 @@
     "gulp-inject": "~1.1.1",
     "gulp-load-plugins": "~0.8.0",
     "gulp-sequence": "~0.3.2",
-    "gulp": "~3.8.11",
     "main-bower-files": "~2.5.0",
     "gulp-minify-css": "~0.4.5",
     "gulp-livereload": "~3.7.0",
@@ -68,6 +72,7 @@
     "karma-chai": "~0.1.0",
     "karma-sinon": "~1.0.4",
     "karma-coverage": "~0.2.7",
-    "karma-firefox-launcher": "~0.1.4"
+    "karma-firefox-launcher": "~0.1.4",
+    "gulp-browserify": "~0.5.1"
   }
 }
