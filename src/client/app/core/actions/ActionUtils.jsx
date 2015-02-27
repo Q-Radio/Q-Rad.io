@@ -17,7 +17,7 @@ module.exports.getSong = function(songs){
     var song;
     $.ajax({
       type: 'POST',
-      url: '/song',
+      url: '/10songs',
       data: JSON.stringify(songs),
       dataType: 'json',
       contentType: 'application/json',
@@ -54,7 +54,7 @@ module.exports.prepareTraining = function(songData, rating){
 
 module.exports.likability = function(song, net){
   if(net !== undefined){
-    var audioDetails = ActionUtils.formatData(song.audio_summary);
+    var audioDetails = module.exports.formatData(song.audio_summary);
     var score = net.run(audioDetails);  
     song.likability = score;
   }
@@ -75,10 +75,54 @@ module.exports.likability = function(song, net){
 };
 
 module.exports.dropSongs = function(futureSongs){
-  futureSongs = futureSongs.slice(0,8);
+  futureSongs = futureSongs.slice(0,7);
   return futureSongs;
 }
 
+module.exports.addSongs = function(url, retrained, futureSongs, fetchedSongs, net){
+  return new Promise(function(resolve){
+    getSongs(fetchedSongs, url).then(function(songs){
+      songs.forEach(function(song){
+        fetchedSongs.push([song.title,song.artist_name,song.score]);
+        futureSongs.push(song);
+        song = module.exports.likability(song, net);
+        resolve({futureSongs:futureSongs, fetchedSongs:fetchedSongs});
+      });
+    })
+  });
+};
 
+var getSongs = function(songs, url){   
+  return new Promise(function(resolve){
+    var song;
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: JSON.stringify(songs),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: function(songs){
+        resolve(songs);
+      }
+    });
+  })
+};
 
+module.exports.modifyPlaylist = function(currentSong, playedSongs){
+    var playlist;
+    if(playedSongs.length - currentSong < 5 && playedSongs.length >10){
+      console.log('first');
+      playlist = playedSongs.slice(playedSongs.length-10, playedSongs.length);
+    }else if( currentSong > 4 && playedSongs.length > 10){
+      console.log('second');
+
+      playlist = playedSongs.slice(currentSong-5, currentSong+5);
+    }else {
+      console.log('third');
+
+      playlist = playedSongs.slice(0,10);       
+    }
+    console.log('playlist',playlist);
+  return playlist;
+}
 

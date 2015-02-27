@@ -43,23 +43,18 @@ function train (){
     }
 }
 
-function addSong(retrained){
-  console.log(fetchedSongs);
-  ActionUtils.getSong().then(function(song){
-    console.log('adding Songssss');
-    fetchedSongs.push([song.title,song.artist_name,song.score]);
-    song = ActionUtils.likability(song, net);
-    futureSongs.push(song);
-    futureSongs = ActionUtils.reorder(futureSongs, net, retrained);
+function getSongsAndUpdate(url){
+  //use url to hit the corresponding route on the serve to get 3 or 10 songs
+  ActionUtils.addSongs(url,retrained, futureSongs, fetchedSongs, net)
+  .then(function(updates){
+    futureSongs = updates.futureSongs;
+    fetchedSongs = updates.fetchedSongs;
+
+    //reorder futureSongs
     AppActions.updateFutureList();
   })
 };
 
-function fillFutureSongs(retrained){
-  for(var i = futureSongs.length-1; i < 10; i++){
-    addSong(retrained);
-  }
-}
 
 var AppActions = {
 
@@ -77,11 +72,8 @@ var AppActions = {
     });
   },    
 
-
   generateFuturePlaylist: function(){
-    for(var i = 0; i < 10; i++){
-      addSong(retrained);
-    }
+    getSongsAndUpdate('/10songs');
   },
 
   play: function(){
@@ -94,39 +86,60 @@ var AppActions = {
   },
 
   next: function(){
-    if(currentSong === playedSongs.length -1 || playedSongs.length ===0){
-      playedSongs.push(futureSongs.shift());
+    var current;
+
+    if(currentSong <=0 ){
+      playedSongs.unshift(futureSongs.shift());
       futureSongs = ActionUtils.dropSongs(futureSongs);
-      fillFutureSongs(retrained);
-      retrained = false; 
+      getSongsAndUpdate('/3songs');
+      retrained = false;
+      currentSong = 0; 
+      current = playedSongs[0];
+    } else {
+      current = playedSongs[--currentSong];
     }
-    var current = playedSongs[++currentSong];
-    console.log(futureSongs);
+
+    var playlist = ActionUtils.modifyPlaylist(currentSong, playedSongs);
+
     AppDispatcher.dispatch({
       actionType: AppConstants.NEXT,
-      played: playedSongs.slice(playedSongs.length-10),
+      played: playlist,
       current: current, 
       future: futureSongs
     });
   }, 
 
   prev: function(){
-    if(currentSong !== 0){
-      currentSong--;
+    if(currentSong !== playedSongs.length-1){
+      currentSong++;
     } 
     var current = playedSongs[currentSong];
+    var playlist = ActionUtils.modifyPlaylist(currentSong, playedSongs);
 
     AppDispatcher.dispatch({
       actionType: AppConstants.PREV,
-      played: playedSongs.slice(playedSongs.length-10),
+      played: playlist,
       current: current,
       future: futureSongs
     });
   },
 
-  upvote: function(){
+  star: function(stars){
     var audioDetails = playedSongs[currentSong].audio_summary;
-    trainingData.push(ActionUtils.prepareTraining(song),1);
+    var rating = stars/4;
+    trainingData.push(ActionUtils.prepareTraining(audioDetails),rating);
+
+    AppDispatcher.dispatch({
+      actionType: AppConstants.STAR,
+      text: 'STARRED'
+    });
+
+  },
+
+
+  upvote: function(song){
+    var audioDetails = song.audio_summary;
+    trainingData.push(ActionUtils.prepareTraining(audioDetails),1);
 
     AppDispatcher.dispatch({
       actionType: AppConstants.UPVOTE,
@@ -134,9 +147,9 @@ var AppActions = {
     });
   },
 
-  downvote: function(){
-    var audioDetails = playedSongs[currentSong].audio_summary;
-    trainingData.push(ActionUtils.prepareTraining(song),1); 
+  downvote: function(song){
+    var audioDetails = song.audio_summary;
+    trainingData.push(ActionUtils.prepareTraining(audioDetails),1); 
     downvotes++;
     if(downvotes >= 3){
       train();

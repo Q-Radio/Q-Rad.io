@@ -24,7 +24,10 @@ mongoose.connect(mongo);
 app.get('/training-worker.js',requestHandler.trainingWorker);
 
 
-app.post('/song',requestHandler.getRelatedSong);
+app.post('/10songs',requestHandler.get10Songs);
+
+app.post('/3songs',requestHandler.get3Songs);
+
 
 app.post('/random',requestHandler.getRandomSong);
 

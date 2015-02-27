@@ -28,7 +28,6 @@ var Playlist = React.createClass({
   },
 
   render: function() {
-    console.log('in this render function',this.props.playlist);
     var items = this.props.playlist.map(function(item, i) {
       return (
         <div key={item.title} onClick={this.handleRemove.bind(this, i)}>

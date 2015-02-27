@@ -7,5 +7,6 @@ module.exports = keyMirror({
   UPVOTE: null,
   DOWNVOTE: null,
   UPDATE_PLAYED: null,
-  UPDATE_FUTURE: null
+  UPDATE_FUTURE: null,
+  STAR: null
 });
