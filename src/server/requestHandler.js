@@ -1,5 +1,6 @@
 var utils = require('./utils.js');
 var path = require('path');
+var Promise = require('bluebird');
 
 module.exports.getRelatedSong = function(req, res){
 
@@ -38,6 +39,22 @@ module.exports.getRelatedSong = function(req, res){
   }
 }
 
+module.exports.get10Songs = function(req, res){
+  var playedSongs = req.body;
+  utils.multipleSongs(10,playedSongs).then(function(songs){
+    res.status(200).send(songs);
+  });
+}
+
+
+module.exports.get3Songs = function(req, res){
+  var playedSongs = req.body;
+  utils.multipleSongs(3,playedSongs).then(function(songs){
+    res.status(200).send(songs);
+  });
+}
+
+
 module.exports.getRandomSong = function(req, res){
   var playedSongs = req.body;
 
@@ -57,3 +74,5 @@ module.exports.discoverArtist = function(req, res){
 module.exports.trainingWorker = function(req, res){
   res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.jsx'));
 }
+
+

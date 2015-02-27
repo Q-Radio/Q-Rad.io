@@ -37,7 +37,14 @@ var Song = mongoose.Schema({
       },
       "preview_url":String,
       "spotify_url":String,
-      "image": String
+      "image": String,
+      "song_currency":Number,
+      "song_currency_rank":Number,
+      "song_discovery":Number,
+      "song_discovery_rank":Number,
+      "song_hotttnesss":Number,
+      "song_hotttnesss_rank":Number,
+      "song_type":String
 
 });
 
