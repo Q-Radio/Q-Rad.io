@@ -6,12 +6,9 @@ var React = require('react');
 var mui = require('material-ui');
 var FloatingActionButton = mui.FloatingActionButton;
 var AppActions = require('./../actions/AppActions.jsx');
+var PlayButton = require('./playButton.jsx');
 
 var PlayerControls = React.createClass({
-
-  play: function(){
-  	AppActions.play();
-  }, 
 
   next: function(){
   	AppActions.next();
@@ -26,7 +23,7 @@ var PlayerControls = React.createClass({
     return (
       <div className="centered btn-group sp-controls'">
         <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.prev}/>
-        <FloatingActionButton iconClassName="muidocs-icon-action-grade" secondary={true} mini={true} onClick={this.play} />
+        <PlayButton songAudio={this.props.songAudio}/>
         <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.next}/>
       </div>
     )

@@ -33,7 +33,7 @@ $(document).ready(function() {
 });
 
 
-},{"./components/contribute.jsx":304,"./components/main.jsx":307,"./components/signup.jsx":312,"material-ui":34,"react":301,"react-router":126}],2:[function(require,module,exports){
+},{"./components/contribute.jsx":304,"./components/main.jsx":307,"./components/signup.jsx":313,"material-ui":34,"react":301,"react-router":126}],2:[function(require,module,exports){
 (function (process,global){
 /* @preserve
  * The MIT License (MIT)
@@ -39819,7 +39819,7 @@ var AppActions = {
 module.exports = AppActions;
 
 
-},{"../constants/AppConstants.jsx":313,"../dispatcher/AppDispatcher.jsx":314,"./ActionUtils.jsx":302,"bluebird":2,"brain":3}],304:[function(require,module,exports){
+},{"../constants/AppConstants.jsx":314,"../dispatcher/AppDispatcher.jsx":315,"./ActionUtils.jsx":302,"bluebird":2,"brain":3}],304:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -39959,7 +39959,7 @@ var App = React.createClass({displayName: "App",
 module.exports = App;
 
 
-},{"./../actions/AppActions.jsx":303,"./../stores/AppStore.jsx":315,"./header.jsx":306,"./player.jsx":309,"react":301}],308:[function(require,module,exports){
+},{"./../actions/AppActions.jsx":303,"./../stores/AppStore.jsx":316,"./header.jsx":306,"./player.jsx":310,"react":301}],308:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -39969,11 +39969,53 @@ var mui = require('material-ui');
 var FloatingActionButton = mui.FloatingActionButton;
 var AppActions = require('./../actions/AppActions.jsx');
 
-var PlayerControls = React.createClass({displayName: "PlayerControls",
+var PlayButton  = React.createClass({displayName: "PlayButton",
+  player: false,
 
-  play: function(){
-  	AppActions.play();
-  }, 
+  togglePlay: function(){
+    if(this.player.paused){
+      this.player.play();
+    } else {
+      this.player.pause();
+    }
+  },
+
+
+
+  componentDidMount: function() {
+    this.player = this.refs.audio.getDOMNode();
+    this.player.addEventListener('ended', function(){
+      console.log('ended');
+      AppActions.next();
+    });
+  },
+
+
+
+  render: function() {
+    return (
+      React.createElement("span", null, 
+        React.createElement("audio", {ref: "audio", className: "audio", src: this.props.songAudio, autoPlay: "true"}), 
+        React.createElement(FloatingActionButton, {iconClassName: "muidocs-icon-action-grade", secondary: true, mini: true, onClick: this.togglePlay})
+      )
+    )
+  }
+})
+
+module.exports = PlayButton;
+
+},{"./../actions/AppActions.jsx":303,"material-ui":34,"react":301}],309:[function(require,module,exports){
+/**
+ * @jsx React.DOM
+ */
+
+var React = require('react');
+var mui = require('material-ui');
+var FloatingActionButton = mui.FloatingActionButton;
+var AppActions = require('./../actions/AppActions.jsx');
+var PlayButton = require('./playButton.jsx');
+
+var PlayerControls = React.createClass({displayName: "PlayerControls",
 
   next: function(){
   	AppActions.next();
@@ -39988,7 +40030,7 @@ var PlayerControls = React.createClass({displayName: "PlayerControls",
     return (
       React.createElement("div", {className: "centered btn-group sp-controls'"}, 
         React.createElement(FloatingActionButton, {iconClassName: "muidocs-icon-action-grade", mini: true, onClick: this.prev}), 
-        React.createElement(FloatingActionButton, {iconClassName: "muidocs-icon-action-grade", secondary: true, mini: true, onClick: this.play}), 
+        React.createElement(PlayButton, {songAudio: this.props.songAudio}), 
         React.createElement(FloatingActionButton, {iconClassName: "muidocs-icon-action-grade", mini: true, onClick: this.next})
       )
     )
@@ -39997,7 +40039,7 @@ var PlayerControls = React.createClass({displayName: "PlayerControls",
 
 module.exports = PlayerControls;
 
-},{"./../actions/AppActions.jsx":303,"material-ui":34,"react":301}],309:[function(require,module,exports){
+},{"./../actions/AppActions.jsx":303,"./playButton.jsx":308,"material-ui":34,"react":301}],310:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40029,7 +40071,7 @@ var Player = React.createClass({displayName: "Player",
 
 module.exports = Player;
 
-},{"./currentSong.jsx":305,"./player-controls.jsx":308,"./playlist.jsx":311,"material-ui":34,"react":301}],310:[function(require,module,exports){
+},{"./currentSong.jsx":305,"./player-controls.jsx":309,"./playlist.jsx":312,"material-ui":34,"react":301}],311:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40056,7 +40098,7 @@ var PlaylistItem = React.createClass({displayName: "PlaylistItem",
 
 module.exports = PlaylistItem;
 
-},{"material-ui":34,"react":301}],311:[function(require,module,exports){
+},{"material-ui":34,"react":301}],312:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40141,7 +40183,7 @@ var Playlist = React.createClass({displayName: "Playlist",
 module.exports = Playlist;
 
 
-},{"./../actions/AppActions.jsx":303,"./playlist-item.jsx":310,"material-ui":34,"react":301}],312:[function(require,module,exports){
+},{"./../actions/AppActions.jsx":303,"./playlist-item.jsx":311,"material-ui":34,"react":301}],313:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40187,7 +40229,7 @@ var Signup = React.createClass({displayName: "Signup",
 module.exports = Signup;
 
 
-},{"material-ui":34,"react":301,"react-router":126}],313:[function(require,module,exports){
+},{"material-ui":34,"react":301,"react-router":126}],314:[function(require,module,exports){
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
@@ -40201,7 +40243,7 @@ module.exports = keyMirror({
   STAR: null
 });
 
-},{"keymirror":33}],314:[function(require,module,exports){
+},{"keymirror":33}],315:[function(require,module,exports){
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
@@ -40225,7 +40267,7 @@ var AppDispatcher = assign(new Dispatcher(), {
 
 module.exports = AppDispatcher;
 
-},{"flux":30,"object-assign":102}],315:[function(require,module,exports){
+},{"flux":30,"object-assign":102}],316:[function(require,module,exports){
 
 var AppDispatcher = require('./../dispatcher/AppDispatcher.jsx');
 var EventEmitter = require('events').EventEmitter;
@@ -40374,4 +40416,4 @@ AppDispatcher.register(function(action) {
 module.exports = AppStore;
 
 
-},{"./../actions/AppActions.jsx":303,"./../constants/AppConstants.jsx":313,"./../dispatcher/AppDispatcher.jsx":314,"events":13,"object-assign":102}]},{},[1]);
+},{"./../actions/AppActions.jsx":303,"./../constants/AppConstants.jsx":314,"./../dispatcher/AppDispatcher.jsx":315,"events":13,"object-assign":102}]},{},[1]);
