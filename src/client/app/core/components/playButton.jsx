@@ -9,6 +9,7 @@ var AppActions = require('./../actions/AppActions.jsx');
 
 var PlayButton  = React.createClass({
   player: false,
+  starting: true,
 
   togglePlay: function(){
     if(this.player.paused){
@@ -22,10 +23,17 @@ var PlayButton  = React.createClass({
 
   componentDidMount: function() {
     this.player = this.refs.audio.getDOMNode();
+    this.starting = true;
     this.player.addEventListener('ended', function(){
       console.log('ended');
       AppActions.next();
     });
+    this.player.addEventListener('playing', (function(){
+      if(this.starting){
+        this.player.pause();
+        this.starting = false;
+      }
+    }).bind(this));
   },
 
 

@@ -19,7 +19,7 @@ authRouter.get('/', ensureAuthenticated,
 
 authRouter.get('/training-worker.js', ensureAuthenticated, requestHandler.trainingWorker);
 
-authRouter.post('/10songs',ensureAuthenticated, requestHandler.get10Songs);
+authRouter.post('/11songs',ensureAuthenticated, requestHandler.get11Songs);
 
 authRouter.post('/3songs',ensureAuthenticated, requestHandler.get3Songs);
 

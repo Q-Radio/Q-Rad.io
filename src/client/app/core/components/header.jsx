@@ -11,7 +11,7 @@ var Header = React.createClass({
   render: function() {
     return (
       <div className="header-container">
-        <h1>Temporary Zebra - SuperMusic</h1>
+        <h1>Q-Rad.io</h1>
         <form className="header-form">
           <span> Choose the song: 
             <input type="text" size="34" placeholder='select your song brotha!'></input>

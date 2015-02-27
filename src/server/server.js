@@ -33,8 +33,6 @@ app.use(reloader());
 
 mongoose.connect(mongo);
 
-var port = process.env.PORT || 8000;
-
 app.use(authRouter);
 
 app.listen(port, function() {
