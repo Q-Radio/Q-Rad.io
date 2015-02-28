@@ -39,9 +39,9 @@ module.exports.getRelatedSong = function(req, res){
   }
 }
 
-module.exports.get10Songs = function(req, res){
+module.exports.get11Songs = function(req, res){
   var playedSongs = req.body;
-  utils.multipleSongs(10,playedSongs).then(function(songs){
+  utils.multipleSongs(11,playedSongs).then(function(songs){
     res.status(200).send(songs);
   });
 }
@@ -72,7 +72,7 @@ module.exports.discoverArtist = function(req, res){
 }
 
 module.exports.trainingWorker = function(req, res){
-  res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.jsx'));
+  res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.js'));
 }
 
 

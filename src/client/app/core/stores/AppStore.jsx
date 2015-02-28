@@ -57,7 +57,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
       songAudio: _songAudio,
       albumArt: _albumArt,
       playlist: _playlist,
-      upcomingSongs: _upcomingSongs
+      upcomingSongs: _upcomingSongs,
+      fullSong: _fullSong
     }
   },
 
@@ -137,6 +138,13 @@ AppDispatcher.register(function(action) {
       AppStore.emitChange();
       break;
 
+    case AppConstants.SELECT_ANY:
+      played = action.played;
+      current = action.current;
+      future = action.future;
+      AppStore.update(played, current, future);
+      AppStore.emitChange();      
+      break;
 
     default:
       // no op

@@ -18,7 +18,10 @@ var Player = React.createClass({
   render: function() {
     return (
       <div>
-        <CurrentSong albumArt={this.props.albumArt} currentSong={this.props.currentSong} currentArtist={this.props.currentArtist}/>
+        <CurrentSong albumArt={this.props.albumArt} 
+                     currentSong={this.props.currentSong} 
+                    currentArtist={this.props.currentArtist}
+                    fullSong={this.props.fullSong} />
         <PlayerControls songAudio={this.props.songAudio} />
         <Playlist className="playlist" playlist={this.props.playlist}/>
         <Playlist className="futureList" playlist={this.props.upcomingSongs}/>

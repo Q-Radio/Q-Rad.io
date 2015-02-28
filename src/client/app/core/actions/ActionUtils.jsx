@@ -2,13 +2,13 @@ var Promise = require ('bluebird');
 
 
  module.exports.onError = function(event) {
-   $("#training-message").text("error training network: " + event.message);
+   // $("#training-message").text("error training network: " + event.message);
    console.log("error training network:" + event.message);
  };
 
  module.exports.showProgress = function(progress) {
-   var completed = progress.iterations / trainer.iterations * 100;
-   $("#progress-completed").css("width", completed + "%");
+   var completed = progress.iterations / 12000 * 100;
+   // $("#progress-completed").css("width", completed + "%");
    console.log('training is ' + completed + "% complete");
 };
 
@@ -56,22 +56,26 @@ module.exports.likability = function(song, net){
   if(net !== undefined){
     var audioDetails = module.exports.formatData(song.audio_summary);
     var score = net.run(audioDetails);  
-    song.likability = score;
+    song.likability = score.rating;
   }
   return song;   
 };
 
 
  module.exports.reorder = function(futureSongs, net, retrained){
-  for(var i = 0; i < futureSongs.length; i++){
-    if(!futureSongs[i].likability || retrained){
-      futureSongs[i] = module.exports.likability(futureSongs[i]);
-    }  
+  if(net){
+    for(var i = 0; i < futureSongs.length; i++){
+      if(!futureSongs[i].likability || retrained){
+        futureSongs[i] = module.exports.likability(futureSongs[i],net);
+      }  
+    }
+    console.log('sorting');
+    console.log(futureSongs[0].likability, futureSongs[1].likability);
+    futureSongs.sort(function(a,b){
+      return a.likability - b.likability;
+    });
   }
-  futureSongs.sort(function(a,b){
-    return a.likability - b.likability;
-  });
-  return futureSongs;
+    return futureSongs;
 };
 
 module.exports.dropSongs = function(futureSongs){
@@ -94,7 +98,6 @@ module.exports.addSongs = function(url, retrained, futureSongs, fetchedSongs, ne
 
 var getSongs = function(songs, url){   
   return new Promise(function(resolve){
-    var song;
     $.ajax({
       type: 'POST',
       url: url,
@@ -125,4 +128,40 @@ module.exports.modifyPlaylist = function(currentSong, playedSongs){
     console.log('playlist',playlist);
   return playlist;
 }
+
+module.exports.getBrain = function(){
+  return new Promise(function(resolve){
+    $.ajax({
+      type: 'POST',
+      url: '/sendTrainingData',
+      data: JSON.stringify(songData),
+      dataType: 'json',
+      contentType: 'application/json',
+      
+      //may not need success at all
+      success: function(songs){
+        resolve(songs);
+      }
+    });
+  });
+}
+
+
+//need to send info about user and their song prefernces
+module.exports.sendTrainingData = function(user, songData){   
+  return new Promise(function(resolve){
+    $.ajax({
+      type: 'POST',
+      url: '/sendTrainingData',
+      data: JSON.stringify(songData),
+      dataType: 'json',
+      contentType: 'application/json',
+      
+      //may not need success at all
+      success: function(songs){
+        resolve(songs);
+      }
+    });
+  })
+};
 
