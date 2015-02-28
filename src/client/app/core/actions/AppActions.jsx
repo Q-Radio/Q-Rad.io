@@ -60,8 +60,6 @@ function getSongsAndUpdate(url){
       fetchedSongs = updates.fetchedSongs;
       console.log('newfuturesongs',futureSongs)
 
-      //reorder futureSongs
-
       AppActions.updateFutureList();
     }
 
@@ -70,13 +68,14 @@ function getSongsAndUpdate(url){
 
 function addTrainingData(){
   if(rating){
-    var audioDetails = playedSongs[currentSong].audio_summary;
+    playedSongs[currentSong].rating = rating+1;
+    var audioDetails = playedSongs[currentSong].audio_summary;   
 
-    trainingData.push(ActionUtils.prepareTraining(audioDetails,rating));
+    trainingData.push(ActionUtils.prepareTraining(audioDetails,rating/4));
 
     console.log('registering stars', trainingData);
 
-    if(rating < 0.5){
+    if(rating < 3){
       downvotes++;
       if(downvotes >= 3){
         train();
@@ -104,6 +103,7 @@ var AppActions = {
   },    
 
   generateFuturePlaylist: function(){
+    futureSongs=[];
     getSongsAndUpdate('/11songs');
   },
 
@@ -195,7 +195,8 @@ var AppActions = {
   },
 
   star: function(stars){
-    rating = stars/4;
+    rating = stars;
+
     AppDispatcher.dispatch({
       actionType: AppConstants.STAR,
       text: 'STARRED'

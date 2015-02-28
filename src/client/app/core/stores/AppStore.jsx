@@ -29,6 +29,7 @@ var _currentArtist = 'this is an artist';
 var _songAudio;
 var _albumArt; 
 var _fullSong;
+var _paused;
 
 
 
@@ -58,7 +59,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
       albumArt: _albumArt,
       playlist: _playlist,
       upcomingSongs: _upcomingSongs,
-      fullSong: _fullSong
+      fullSong: _fullSong,
+      paused: _paused
     }
   },
 

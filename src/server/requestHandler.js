@@ -40,6 +40,7 @@ module.exports.getRelatedSong = function(req, res){
 }
 
 module.exports.get11Songs = function(req, res){
+  console.log('testing the user on the req',req.user);
   var playedSongs = req.body;
   utils.multipleSongs(11,playedSongs).then(function(songs){
     res.status(200).send(songs);

@@ -11,6 +11,10 @@ var CurrentSong = React.createClass({
     AppActions.star(stars);
   },
 
+  pause: function(){
+    $('audio').get(0).pause();
+  },
+
   render: function() {
     return (
       <span>
@@ -18,10 +22,11 @@ var CurrentSong = React.createClass({
         <div className='sp-info'>
           <div className='sp-title'>{this.props.currentSong}</div>
           <div className='sp-artist'>{this.props.currentArtist}</div>
-          <a href={this.props.fullSong} target='_blank'> Full Song </a>
+          <a href={this.props.fullSong} target='_blank' onClick={this.pause}> 
+            Full Song 
+          </a>
         </div>
       </span>
-
     )
   }
 })
