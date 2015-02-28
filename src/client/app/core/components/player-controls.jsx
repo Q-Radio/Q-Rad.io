@@ -21,11 +21,11 @@ var PlayerControls = React.createClass({
 
   render: function() {
     return (
-      <div className="centered btn-group sp-controls'">
-        <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.prev}/>
-        <PlayButton songAudio={this.props.songAudio}/>
-        <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.next}/>
-      </div>
+      <span className="centered btn-group sp-controls'">
+        <span className="fa fa-step-backward fa-2x controls" onClick={this.prev}> </span>
+        <span className="fa fa-play fa-2x controls" onClick={this.play}> </span>
+        <span className="fa fa-step-forward fa-2x controls" onClick={this.next}> </span>
+      </span>
     )
   }
 })
