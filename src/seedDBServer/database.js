@@ -45,7 +45,6 @@ var Song = mongoose.Schema({
       "song_hotttnesss":Number,
       "song_hotttnesss_rank":Number,
       "song_type":String
-
 });
 
 module.exports = mongoose.model('Song', Song);
