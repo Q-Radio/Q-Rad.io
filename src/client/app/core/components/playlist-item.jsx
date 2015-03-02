@@ -41,14 +41,23 @@ var PlaylistItem = React.createClass({
       'fa-2x': true
     });
 
-    return (
-      <div className="playlist-item">
-        <span> {this.props.title} by {this.props.artist} 
-          <span className={down} onClick={this.toggleClick}> </span>
-          <span className={up} onClick={this.toggleClick}> </span>
-        </span>
-      </div>
-    )
+    if(this.props.rating){
+      return (
+        <div className="playlist-item">
+          <span> {this.props.title} by {this.props.artist} </span>
+          <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.temp.bind(this,this.props.title)}/>
+          <span> Your Rating is {this.props.rating} stars</span>
+        </div>
+        )
+    } else {
+
+      return (
+        <div className="playlist-item">
+          <span> {this.props.title} by {this.props.artist} </span>
+          <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.temp.bind(this,this.props.title)}/>
+        </div>
+      )
+    }
   }
 })
 

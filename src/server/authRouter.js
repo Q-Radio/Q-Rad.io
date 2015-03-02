@@ -30,6 +30,7 @@ authRouter.post('/random', ensureAuthenticated, requestHandler.getRandomSong);
 authRouter.get('/auth/spotify',
   auth.authenticate('spotify', {scope: 'user-read-private'}),
   function(req, res){
+    
 // The request will be redirected to spotify for authentication, so this
 // function will not be called.
 });

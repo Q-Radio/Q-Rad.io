@@ -33,7 +33,7 @@ var PlayButton  = React.createClass({
       }
     }).bind(this));
   },
-
+  
   render: function() {
     return (
       <span>
