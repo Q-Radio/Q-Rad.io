@@ -1,4 +1,5 @@
 var Song = require('./../seedDBServer/database.js');
+var Record = require('./songHistory.js');
 var Promise = require('bluebird');
 
 var randomSong = function(songs){
@@ -8,7 +9,7 @@ var randomSong = function(songs){
 };
 
 var queryNoRepeats = function(playedSongs){
-  var titles = []
+  var titles = [];
   var query = Song.find();
   var queryItems = 'title score artist_name tracks.foreign_id audio_summary preview_url spotify_url image';
   query.select(queryItems);
@@ -77,4 +78,22 @@ module.exports.multipleSongs = function(numberOfSongs, playedSongs, songs){
       })());
     }
   });
-}
+};
+
+module.exports.retrieveRecords = function(id){
+  var query = Record.find();
+  var queryItems = 'toTrain';
+  query.select(queryItems);
+  query.where('userID').equals(id);
+  return query;
+};
+
+module.exports.saveToDB = function(id, trainingData){
+  var record = {userID: id, 
+                toTrain: trainingData};
+
+  var trainingRecord = new Record(record);
+  console.log('saved');
+  trainingRecord.save(); 
+
+};

@@ -39651,11 +39651,13 @@ module.exports.modifyPlaylist = function(currentSong, playedSongs){
   return playlist;
 }
 
-module.exports.getBrain = function(){
+
+//need to send info about user and their song prefernces
+module.exports.sendTrainingData = function(songData){   
   return new Promise(function(resolve){
     $.ajax({
       type: 'POST',
-      url: '/sendTrainingData',
+      url: '/saveRecord',
       data: JSON.stringify(songData),
       dataType: 'json',
       contentType: 'application/json',
@@ -39665,23 +39667,18 @@ module.exports.getBrain = function(){
         resolve(songs);
       }
     });
-  });
-}
+  })
+};
 
-
-//need to send info about user and their song prefernces
-module.exports.sendTrainingData = function(user, songData){   
+module.exports.getBrainData = function(){   
   return new Promise(function(resolve){
     $.ajax({
-      type: 'POST',
-      url: '/sendTrainingData',
-      data: JSON.stringify(songData),
+      type: 'GET',
+      url: '/getHistory',
       dataType: 'json',
-      contentType: 'application/json',
       
-      //may not need success at all
-      success: function(songs){
-        resolve(songs);
+      success: function(data){
+        resolve(data);
       }
     });
   })
@@ -39719,6 +39716,7 @@ function onMessage(event) {
 }
 
 function train (){
+  console.log('training');
 
  if(window.Worker){
     $(function(){
@@ -39763,7 +39761,11 @@ function addTrainingData(){
     playedSongs[currentSong].rating = rating+1;
     var audioDetails = playedSongs[currentSong].audio_summary;   
 
-    trainingData.push(ActionUtils.prepareTraining(audioDetails,rating/4));
+    var userPreference=ActionUtils.prepareTraining(audioDetails,rating/4)
+
+    trainingData.push(userPreference);
+
+    ActionUtils.sendTrainingData(userPreference);
 
     console.log('registering stars', trainingData);
 
@@ -39799,6 +39801,18 @@ var AppActions = {
     getSongsAndUpdate('/11songs');
   },
 
+  getPriorHistory: function(){
+    ActionUtils.getBrainData().then(function(records){
+      for(var i = 0; i<records.length; i++){
+        trainingData.push(records[i].toTrain);
+      } 
+      if(records.length>0){
+        train();
+      }
+
+    });
+  },
+
   play: function(){
     AppDispatcher.dispatch({
       actionType: AppConstants.PLAY,
@@ -39809,6 +39823,7 @@ var AppActions = {
   },
 
   selectAny: function(title){
+    addTrainingData();
     var inPlayedSongs = false;
     for(var i = 0; i< playedSongs.length; i++){
       if(playedSongs[i].title === title){
@@ -40088,6 +40103,7 @@ var App = React.createClass({displayName: "App",
 
   getInitialState: function() {
     AppActions.generateFuturePlaylist();
+    AppActions.getPriorHistory();
     return getAppState();
   },
 

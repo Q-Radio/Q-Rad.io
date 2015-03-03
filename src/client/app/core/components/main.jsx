@@ -17,6 +17,7 @@ var App = React.createClass({
 
   getInitialState: function() {
     AppActions.generateFuturePlaylist();
+    AppActions.getPriorHistory();
     return getAppState();
   },
 

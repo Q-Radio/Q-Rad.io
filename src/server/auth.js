@@ -28,7 +28,7 @@ passport.use(new SpotifyStrategy({
       // to associate the spotify account with a user record in your database,
       // and return that user instead.
 
-      console.log('my profile is ', profile);
+      // console.log('my profile is ', profile);
       return done(null, profile);
     });
   }));
