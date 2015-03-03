@@ -40,7 +40,6 @@ module.exports.getRelatedSong = function(req, res){
 }
 
 module.exports.get11Songs = function(req, res){
-  console.log('testing the user on the req',req.user);
   var playedSongs = req.body;
   utils.multipleSongs(11,playedSongs).then(function(songs){
     res.status(200).send(songs);
@@ -76,6 +75,27 @@ module.exports.trainingWorker = function(req, res){
   res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.js'));
 }
 
-module.exports.trainingWorker = function(req, res){
-  res.status(200).sendFile(path.resolve(__dirname +'/../../build/js/core/trainingWorker.jsx'));
-}
+module.exports.getHistory = function(req, res){
+  var user = req.user.id;
+
+  console.log('testing the user on the req',req.user);  
+
+  var query = utils.retrieveRecords(user);
+
+  query.exec(function(err,records){
+    if(err) return console.error(err);      
+    res.status(200).send(records);
+  });
+};
+
+module.exports.saveRecord = function(req, res){
+  var user = req.user.id;
+  var record = req.body;
+
+  console.log('testing the user on the req',req.user); 
+  console.log('testing the body on the req',req.body);  
+
+  utils.saveToDB(user,record);
+
+  res.status(200);
+};

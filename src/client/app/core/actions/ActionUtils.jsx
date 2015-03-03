@@ -129,11 +129,13 @@ module.exports.modifyPlaylist = function(currentSong, playedSongs){
   return playlist;
 }
 
-module.exports.getBrain = function(){
+
+//need to send info about user and their song prefernces
+module.exports.sendTrainingData = function(songData){   
   return new Promise(function(resolve){
     $.ajax({
       type: 'POST',
-      url: '/sendTrainingData',
+      url: '/saveRecord',
       data: JSON.stringify(songData),
       dataType: 'json',
       contentType: 'application/json',
@@ -143,23 +145,18 @@ module.exports.getBrain = function(){
         resolve(songs);
       }
     });
-  });
-}
+  })
+};
 
-
-//need to send info about user and their song prefernces
-module.exports.sendTrainingData = function(user, songData){   
+module.exports.getBrainData = function(){   
   return new Promise(function(resolve){
     $.ajax({
-      type: 'POST',
-      url: '/sendTrainingData',
-      data: JSON.stringify(songData),
+      type: 'GET',
+      url: '/getHistory',
       dataType: 'json',
-      contentType: 'application/json',
       
-      //may not need success at all
-      success: function(songs){
-        resolve(songs);
+      success: function(data){
+        resolve(data);
       }
     });
   })
