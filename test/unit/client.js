@@ -4,9 +4,9 @@ var expect = chai.expect;
 
 describe('testing', function() {
 
-it("testing", function () {
+  it("testing", function () {
       assert.equal(true, true);
-    });
+  });
 });
 
 

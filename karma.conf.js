@@ -15,14 +15,16 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'lib/bower_components/jquery/dist/jquery.min.js',
-      'src/client/app/core/*.js',
-      'test/unit/client.js'
+        'build/js/**/*.js',
+        'build/**/*.css',
+        'test/unit/client.js'
     ],
 
 
     // list of files to exclude
     exclude: [
       'karma.conf.js',
+      'gulpfile.js',
       'src/client/app/core/MainApp.js',
       'src/client/app/core/main.js'
     ],
@@ -64,7 +66,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false, 
+    singleRun: true, 
 
 
     plugins: [

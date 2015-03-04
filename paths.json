@@ -49,6 +49,7 @@
     "integration": "test/integration/integration.js",
     "server": "test/unit/server.js",
     "client": "test/unit/client.js",
+    "jsx": "test/unit/jsxComponents/*.js",
     "karma" : "karma.conf.js", 
     "testFiles": "['src/client/app/core/*.js', 'test/unit/client.js']"
   }  
