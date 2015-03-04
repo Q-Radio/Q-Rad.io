@@ -17,16 +17,15 @@ var CurrentSong = React.createClass({
 
   render: function() {
     return (
-      <span>
+      <div className="song-info">
         <img src={this.props.albumArt} className="sp-album-art"></img>
         <div className='sp-info'>
-          <div className='sp-title'>{this.props.currentSong}</div>
-          <div className='sp-artist'>{this.props.currentArtist}</div>
           <a href={this.props.fullSong} target='_blank' onClick={this.pause}> 
-            Full Song 
+            <div className='sp-title'>{this.props.currentSong}</div>
           </a>
+          <div className='sp-artist'>{this.props.currentArtist}</div>
         </div>
-      </span>
+      </div>
     )
   }
 })

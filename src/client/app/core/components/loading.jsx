@@ -4,6 +4,8 @@
 
 var React = require('react');
 
+var Quentin = require('./quentin.jsx');
+
 var Loading = React.createClass({
 
   render: function() {
@@ -19,7 +21,7 @@ var Loading = React.createClass({
 
     return (
       <div className="loading">
-        <h1>Just a sec as we process your awesome music!</h1>
+        <h1>Just a sec as Quentin finds you awesome music!</h1>
         <br />
         <span className={classes}></span>
         <h5> "True stength comes from Shmoosh" </h5>

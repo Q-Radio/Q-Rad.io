@@ -7,19 +7,95 @@ body, html{
   height: 100%;
 }
 
+.search-box{
+  margin-left: .5%;
+  margin-right: .5%;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.current-song{
+  min-width:33%;
+  margin: 0
+}
+
+.sp-album-art{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.sp-info{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.test{
+  margin: 0 auto;
+}
+
 .container{
   background-color: @light-blue-500;
   width: 100%;
   height: 100%;
 }
 
-.header-btn{
-  margin-left: 5px;
+.header-container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header-btn {
+  -moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+  box-shadow:inset 0px 1px 0px 0px #fff6af;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+  background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+  background-color:#ffec64;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #ffaa22;
+  display:inline-block;
+  cursor:pointer;
+  color:#333333;
+  font-family:arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffee66;
+}
+.header-btn:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+  background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+  background-color:#ffab23;
+}
+.header-btn:active {
+  position:relative;
+  top:1px;
 }
 
 .header-form{
   text-align: center;
+  margin: 0 auto;
   margin-bottom: 20px;
+  margin-right: 40px;
 }
 
 .centered{
@@ -29,20 +105,37 @@ body, html{
 .sp-info{
   width: 300px;
   margin: 0 auto;
-  background-color: @light-blue-A400
+  background-color: @amber-A100;
 }
 
 .sp-title{
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
+  transition: opacity .5s;
+  transition: background-color .5s ;
 }
 
+.sp-title:hover{
+  opacity: .7;
+  transition: opacity .5s ease-in;
+  background-color: @amber-A400;
+  transition: background-color .5s ease-in;
+}
+
+
 .sp-artist{
-  width: 50%;
-  margin: 0 auto;
+  .sp-title;
+}
+
+.sp-artist:hover{
+  opacity: .7;
+  transition: opacity .5s ease-in;
+  background-color: @amber-A400;
+  transition: background-color .5s ease-in;
 }
 
 .controls{
+  margin-top: 15px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 5px;
@@ -54,25 +147,53 @@ body, html{
 }
 
 .playlist {
-  background:@amber-A200;
+  background: @amber-A200;
   display:inline-block;
-  width:500px;
-  height:410px;
+  min-width:40%;
+  min-height: 725px;
   float: left;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
-  padding-top: 5px;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 5%;
+}
+
+.playlist-item:first-child{
+  // border-radius: 10px;
 }
 
 .loading{
   margin-top: 27%;
 }
 
-.playlist-item{
+.playlist-item {
+  min-height: 70px;
   width: 100%;
-  height: 41px;
+  transition: opacity .5s;
+  transition: background-color .5s ;
+}
+
+.playlist-item:hover{
+  opacity: .7;
+  transition: opacity .5s ease-in;
+  background-color: @amber-A400;
+  transition: background-color .5s ease-in;
+}
+
+.rated-star{
+  float: right;
+}
+
+* { box-sizing: border-box }
+
+.song-info{
+  min-width:33%;
+}
+
+.current-song{
+  margin: 0 auto;
 }
 
 .playlist-item-button{
@@ -90,7 +211,14 @@ body, html{
   opacity: 1;
 }
 
+.rating-number{
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
 .futureList{
   .playlist;
+  margin-left: 0;
+  margin-right: 10%;
   float: right;
 }

@@ -19,11 +19,16 @@ var Player = React.createClass({
   render: function() {
     return (
       <span>
-        <CurrentSong albumArt={this.props.albumArt} currentSong={this.props.currentSong} currentArtist={this.props.currentArtist} fullSong={this.props.fullSong} />
-        <PlayerControls songAudio={this.props.songAudio} />
-        <Stars />
-        <Playlist className="playlist" playlist={this.props.playlist}/>
-        <Playlist className="futureList" playlist={this.props.upcomingSongs}/>
+        <div className="flex">
+          <Playlist className="playlist" playlist={this.props.playlist}/>
+          <div className="current-song centered">
+            <CurrentSong className="current-song" albumArt={this.props.albumArt} currentSong={this.props.currentSong} currentArtist={this.props.currentArtist} fullSong={this.props.fullSong} />
+            <PlayerControls songAudio={this.props.songAudio} />
+            <Stars />
+          </div>
+          <Playlist className="futureList" playlist={this.props.upcomingSongs}/>
+        </div>
+
       </span>
     )
   }
