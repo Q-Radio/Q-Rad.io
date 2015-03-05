@@ -7,6 +7,14 @@ var AppActions = require('../actions/AppActions.jsx');
 
 var Stars = React.createClass({
 
+  changed: false,
+
+  clearStars: function(){
+    if(this.changed){
+      $(el).rating('clear');
+    }
+  },
+
   sendScore: function(score){
     AppActions.star(score);
   },

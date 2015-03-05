@@ -17,13 +17,12 @@ var Header = React.createClass({
   render: function() {
     return (
       <div className="header-container">
-        <h1>Q-Rad.io</h1>
         <form className="header-form">
-          <span> Choose the song: 
-            <input type="text" size="34" placeholder='select your song brotha!'></input>
-          </span>
-          <RaisedButton className="header-btn" value="go" id="go" name="go" label="Go" primary={true} />
-          <RaisedButton className="header-btn" label="Random" primary={true} onClick={this.getRandomSong} />
+        <h1>Q-Rad.io</h1>
+          <div> What should Quentin look up? </div>
+          <button className="header-btn" primary={true}> Search </button>
+          <input className="search-box" type="text" size="34" placeholder="find your next Rad-Slice!"></input>
+          <button className="header-btn" onClick={this.getRandomSong}> Random </button>
         </form>
       </div>
     )

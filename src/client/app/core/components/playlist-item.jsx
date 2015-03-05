@@ -5,10 +5,12 @@
 var React = require('react');
 var mui = require('material-ui');
 var FloatingActionButton = mui.FloatingActionButton;
+var StarRating = require('./star-rating.jsx')
 var AppActions = require('./../actions/AppActions.jsx');
 
-
 var PlaylistItem = React.createClass({
+
+
 
   temp: function(song){
     AppActions.selectAny(song);
@@ -44,17 +46,17 @@ var PlaylistItem = React.createClass({
     if(this.props.rating){
       return (
         <div className="playlist-item">
-          <span> {this.props.title} by {this.props.artist} </span>
-          <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.temp.bind(this,this.props.title)}/>
-          <span> Your Rating is {this.props.rating} stars</span>
+          <span onClick={this.temp.bind(this,this.props.title)}> {this.props.title} by {this.props.artist} </span>
+          <div className="rated-star">
+            <StarRating rating={this.props.rating} />
+          </div>
         </div>
         )
     } else {
 
       return (
         <div className="playlist-item">
-          <span> {this.props.title} by {this.props.artist} </span>
-          <FloatingActionButton iconClassName="muidocs-icon-action-grade" mini={true} onClick={this.temp.bind(this,this.props.title)}/>
+          <span onClick={this.temp.bind(this,this.props.title)}> {this.props.title} by {this.props.artist} </span>
         </div>
       )
     }
