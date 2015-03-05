@@ -46,9 +46,12 @@ var PlaylistItem = React.createClass({
     if(this.props.rating){
       return (
         <div className="playlist-item">
-          <span onClick={this.temp.bind(this,this.props.title)}> {this.props.title} by {this.props.artist} </span>
           <div className="rated-star">
             <StarRating rating={this.props.rating} />
+          </div>
+          <div onClick={this.temp.bind(this,this.props.title)}> {this.props.title} </div>
+          <div>
+           {this.props.artist} 
           </div>
         </div>
         )
@@ -56,7 +59,10 @@ var PlaylistItem = React.createClass({
 
       return (
         <div className="playlist-item">
-          <span onClick={this.temp.bind(this,this.props.title)}> {this.props.title} by {this.props.artist} </span>
+          <div onClick={this.temp.bind(this,this.props.title)}> {this.props.title} </div>
+          <div>
+           {this.props.artist} 
+          </div>
         </div>
       )
     }

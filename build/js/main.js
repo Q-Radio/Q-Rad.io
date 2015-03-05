@@ -40508,9 +40508,12 @@ var PlaylistItem = React.createClass({displayName: "PlaylistItem",
     if(this.props.rating){
       return (
         React.createElement("div", {className: "playlist-item"}, 
-          React.createElement("span", {onClick: this.temp.bind(this,this.props.title)}, " ", this.props.title, " by ", this.props.artist, " "), 
           React.createElement("div", {className: "rated-star"}, 
             React.createElement(StarRating, {rating: this.props.rating})
+          ), 
+          React.createElement("div", {onClick: this.temp.bind(this,this.props.title)}, " ", this.props.title, " "), 
+          React.createElement("div", null, 
+           this.props.artist
           )
         )
         )
@@ -40518,7 +40521,10 @@ var PlaylistItem = React.createClass({displayName: "PlaylistItem",
 
       return (
         React.createElement("div", {className: "playlist-item"}, 
-          React.createElement("span", {onClick: this.temp.bind(this,this.props.title)}, " ", this.props.title, " by ", this.props.artist, " ")
+          React.createElement("div", {onClick: this.temp.bind(this,this.props.title)}, " ", this.props.title, " "), 
+          React.createElement("div", null, 
+           this.props.artist
+          )
         )
       )
     }
