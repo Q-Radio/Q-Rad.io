@@ -44,12 +44,14 @@
     .task( 'less:dev'     , tasks.less.dev)
     .task( 'css:dev'      , tasks.css.dev)
     .task( 'html:dev'     , tasks.html.dev)
+    .task( 'assets:dev'   , tasks.assets.dev)
     .task( 'compile:dev'  , tasks.compile.dev)
     .task( 'build:dev',
       $.sequence( 'js:dev'
                 , 'less:dev'
                 , 'css:dev'
                 , 'html:dev'
+                , 'assets:dev'
                 , 'compile:dev'
                 ));
 
