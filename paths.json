@@ -9,7 +9,8 @@
     "jsx": "src/client/app/**/*.jsx",
     "less": "src/client/app/**/*.less",
     "css": "src/client/app/**/*.css",
-    "compile": "./src/client/app/core/main.jsx"
+    "compile": "./src/client/app/core/main.jsx",
+    "assets": "./src/client/app/core/assets/*"
   },
   "vendor": {
     "root": "build/vendor",
@@ -36,7 +37,8 @@
       "js": "build/js",
       "css": "build/css",
       "vendor": "build/vendor",
-      "templates": "build/templates"
+      "templates": "build/templates",
+      "assets": "build/assets"
     }
   },
   "server": {
