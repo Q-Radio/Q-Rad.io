@@ -22,7 +22,6 @@ function onMessage(event) {
   else if(data.type === 'result') {
     net = new brain.NeuralNetwork().fromJSON(data.net);
     retrained = true;
-    console.log('retrained');
   }
 }
 
@@ -45,23 +44,32 @@ function train (){
     }
 }
 
-function getSongsAndUpdate(url){
+function getSongsAndUpdate(url, artist){
   //use url to hit the corresponding route on the serve to get 3 or 10 songs
-  ActionUtils.addSongs(url,retrained, futureSongs, fetchedSongs, net)
+  ActionUtils.addSongs(url,retrained, futureSongs, fetchedSongs, net, artist)
   .then(function(updates){
-    //if first time fetching and length 11
-    if(updates.futureSongs.length === 11){
-      playedSongs.unshift(updates.futureSongs.shift());
-      futureSongs = updates.futureSongs;
-      fetchedSongs = updates.fetchedSongs;
-      AppActions.play();
 
-    } else { 
-      futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
-      fetchedSongs = updates.fetchedSongs;
-      console.log('newfuturesongs',futureSongs)
+    if(updates ==='No Artist Found'){
+      AppActions.noSearchResults();
+    } else {
+      //if first time fetching and length 11
+      if(updates.futureSongs.length===21){
+        updates.futureSongs = updates.futureSongs.slice(10);
+      }
 
-      AppActions.updateFutureList();
+      if(updates.futureSongs.length === 11){
+        playedSongs.unshift(updates.futureSongs.shift());
+        futureSongs = updates.futureSongs;
+        fetchedSongs = updates.fetchedSongs;
+        console.log(futureSongs);
+        AppActions.play();
+
+      } else { 
+        futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
+        fetchedSongs = updates.fetchedSongs;
+
+        AppActions.updateFutureList();
+      }  
     }
 
   })
@@ -78,8 +86,6 @@ function addTrainingData(){
 
     ActionUtils.sendTrainingData(userPreference);
 
-    console.log('registering stars', trainingData);
-
     if(rating < 3){
       downvotes++;
       if(downvotes >= 3){
@@ -92,6 +98,16 @@ function addTrainingData(){
 }
 
 var AppActions = {
+
+  addTrackToSpotify: function(trackID){
+    console.log('adding track to spotify');
+    ActionUtils.addTrackToSpotifyPlaylist(trackID);
+  },
+
+  testing: function(){
+    console.log('inside App Actions testing');
+    ActionUtils.testing();
+  },
 
   updateFutureList: function(){
     AppDispatcher.dispatch({
@@ -108,8 +124,24 @@ var AppActions = {
   },    
 
   generateFuturePlaylist: function(){
-    futureSongs=[];
     getSongsAndUpdate('/11songs');
+  },
+
+  search: function(artist){
+    getSongsAndUpdate('/search',artist);
+  },
+
+  noSearchResults: function(){
+    var current = {};
+    current.title = 'Song not found';
+    current.artist_name = 'Artist not found';
+    current.image = 'http://immo.krips.com/images/hata.png';
+    current.spotify_url = null;
+
+    AppDispatcher.dispatch({
+      actionType: AppConstants.NO_SEARCH_RESULTS,
+      current: current
+    });    
   },
 
   getPriorHistory: function(){

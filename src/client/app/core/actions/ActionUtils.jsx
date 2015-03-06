@@ -69,8 +69,6 @@ module.exports.likability = function(song, net){
         futureSongs[i] = module.exports.likability(futureSongs[i],net);
       }  
     }
-    console.log('sorting');
-    console.log(futureSongs[0].likability, futureSongs[1].likability);
     futureSongs.sort(function(a,b){
       return a.likability - b.likability;
     });
@@ -83,15 +81,21 @@ module.exports.dropSongs = function(futureSongs){
   return futureSongs;
 }
 
-module.exports.addSongs = function(url, retrained, futureSongs, fetchedSongs, net){
+module.exports.addSongs = function(url, retrained, futureSongs, fetchedSongs, net, artist){
   return new Promise(function(resolve){
-    getSongs(fetchedSongs, url).then(function(songs){
-      songs.forEach(function(song){
-        fetchedSongs.push([song.title,song.artist_name,song.score]);
-        futureSongs.push(song);
-        song = module.exports.likability(song, net);
-        resolve({futureSongs:futureSongs, fetchedSongs:fetchedSongs});
-      });
+    //make fetchedSongs an object if there is an artist to allow searching
+    var data = (artist ? {artist: artist, playedSongs: fetchedSongs} : fetchedSongs);
+    getSongs(data, url).then(function(songs){
+      if(songs[0] ==='No Artist Found'){
+        resolve(songs[0]);
+      } else {
+        songs.forEach(function(song){
+          fetchedSongs.push([song.title,song.artist_name,song.score]);
+          futureSongs.push(song);
+          song = module.exports.likability(song, net);
+          resolve({futureSongs:futureSongs, fetchedSongs:fetchedSongs});        
+        });
+      };
     })
   });
 };
@@ -114,18 +118,12 @@ var getSongs = function(songs, url){
 module.exports.modifyPlaylist = function(currentSong, playedSongs){
     var playlist;
     if(playedSongs.length - currentSong < 5 && playedSongs.length >10){
-      console.log('first');
       playlist = playedSongs.slice(playedSongs.length-10, playedSongs.length);
     }else if( currentSong > 4 && playedSongs.length > 10){
-      console.log('second');
-
       playlist = playedSongs.slice(currentSong-5, currentSong+5);
     }else {
-      console.log('third');
-
       playlist = playedSongs.slice(0,10);       
     }
-    console.log('playlist',playlist);
   return playlist;
 }
 
@@ -161,4 +159,40 @@ module.exports.getBrainData = function(){
     });
   })
 };
+
+module.exports.testing = function(){   
+  return new Promise(function(resolve){
+    console.log('inside action utils testing');
+    $.ajax({
+      type: 'POST',
+      url: '/createPlaylist',
+      data: JSON.stringify(['songData']),
+      dataType: 'json',
+      contentType: 'application/json',
+
+      success: function(data){
+        resolve(data);
+      }
+    });
+  })
+};
+
+module.exports.addTrackToSpotifyPlaylist= function(trackID){
+  return new Promise(function(resolve){
+    console.log('inside action utils testing');
+    $.ajax({
+      type: 'POST',
+      url: '/addToPlaylist',
+      data: JSON.stringify({trackID:trackID}),
+      dataType: 'json',
+      contentType: 'application/json',
+
+      success: function(data){
+        console.log('Track ADded!!!!!');
+        resolve(data);
+      }
+    });
+  })
+};
+
 

@@ -22,13 +22,14 @@ var AppActions = require('./../actions/AppActions.jsx');
 
 var CHANGE_EVENT = 'change';
 
-var _playlist = [{title:'testing', artist:'1234'}];
-var _upcomingSongs = [];
-var _currentSong = 'testing';
-var _currentArtist = 'this is an artist';
+var _playlist;
+var _upcomingSongs=[];
+var _currentSong;
+var _currentArtist;
 var _songAudio;
 var _albumArt; 
 var _fullSong;
+var _spotifyID;
 var _paused;
 
 
@@ -44,6 +45,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
     _songAudio = current.preview_url;
     _albumArt = current.image;
     _fullSong = current.spotify_url;
+    var spotifyID = current.spotify_url.split('/');
+    spotifyID = spotifyID[spotifyID.length-1];
+    _spotifyID = spotifyID;
   },
 
   updateFuture: function(future){
@@ -60,6 +64,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
       playlist: _playlist,
       upcomingSongs: _upcomingSongs,
       fullSong: _fullSong,
+      spotifyID: _spotifyID,
       paused: _paused
     }
   },
@@ -145,6 +150,18 @@ AppDispatcher.register(function(action) {
       current = action.current;
       future = action.future;
       AppStore.update(played, current, future);
+      AppStore.emitChange();      
+      break;
+
+    case AppConstants.NO_SEARCH_RESULTS:
+      var current = action.current;
+
+      _currentSong = current.title;
+      _currentArtist = current.artist_name;
+      _songAudio = current.preview_url;
+      _albumArt = current.image;
+      _fullSong = current.spotify_url;
+
       AppStore.emitChange();      
       break;
 
