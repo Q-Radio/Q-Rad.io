@@ -5,15 +5,13 @@
 var React = require('react');
 var mui = require('material-ui');
 var Item = require('./playlist-item.jsx');
-// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Actions = require('./../actions/AppActions.jsx');
 
 
-var obj = {title:'shmoosh', artist:'gaia'};
-
-
 var Playlist = React.createClass({
+
+
 
   handleAdd: function() {
     // var newList = this.state.list.concat([obj]);
@@ -30,14 +28,19 @@ var Playlist = React.createClass({
   render: function() {
     var items = this.props.playlist.map(function(item, i) {
       return (
-        <div key={item.title} onClick={this.handleRemove.bind(this, i)}>
-          <Item title={item.title} artist={item.artist_name} rating={item.rating}/>
+        <div  onClick={this.handleRemove.bind(this, i)}>
+          <span key={item.title}>
+            <Item title={item.title} artist={item.artist_name} rating={item.rating}/>
+          </span>
         </div>
       );
     }.bind(this));
     return (
       <span className={this.props.className}>
+        <h4 className="playlist-header"> {this.props.header} </h4>
+        <ReactCSSTransitionGroup className='Transition-Group' transitionName="example">
           {items}
+        </ReactCSSTransitionGroup>
       </span>
     )
   }

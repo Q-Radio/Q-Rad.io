@@ -7,10 +7,13 @@ var mui = require('material-ui');
 var FloatingActionButton = mui.FloatingActionButton;
 var StarRating = require('./star-rating.jsx')
 var AppActions = require('./../actions/AppActions.jsx');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var PlaylistItem = React.createClass({
 
-
+  componentWillMount: function(){
+    //grab this.props.title and check it's length in order to adjust for length
+  },
 
   temp: function(song){
     AppActions.selectAny(song);
@@ -45,7 +48,7 @@ var PlaylistItem = React.createClass({
 
     if(this.props.rating){
       return (
-        <div className="playlist-item">
+        <div className="centered playlist-item">
           <div className="rated-star">
             <StarRating rating={this.props.rating} />
           </div>
