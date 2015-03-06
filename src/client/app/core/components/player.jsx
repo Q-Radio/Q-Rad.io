@@ -22,7 +22,11 @@ var Player = React.createClass({
         <div className="flex">
           <Playlist className="playlist" playlist={this.props.playlist}/>
           <div className="current-song centered">
-            <CurrentSong className="current-song" albumArt={this.props.albumArt} currentSong={this.props.currentSong} currentArtist={this.props.currentArtist} fullSong={this.props.fullSong} />
+            <CurrentSong className="current-song" albumArt={this.props.albumArt} 
+                                                  currentSong={this.props.currentSong} 
+                                                  currentArtist={this.props.currentArtist} 
+                                                  fullSong={this.props.fullSong} 
+                                                  spotifyID={this.props.spotifyID}/>
             <PlayerControls songAudio={this.props.songAudio} />
             <Stars />
           </div>

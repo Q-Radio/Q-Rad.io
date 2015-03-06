@@ -15,6 +15,11 @@ var CurrentSong = React.createClass({
     $('audio').get(0).pause();
   },
 
+  addToSpotify: function(spotifyID){
+    console.log('spotifyID',spotifyID);
+    AppActions.addTrackToSpotify(spotifyID);
+  },
+
   render: function() {
     return (
       <div className="song-info">
@@ -24,6 +29,9 @@ var CurrentSong = React.createClass({
             <div className='sp-title'>{this.props.currentSong}</div>
           </a>
           <div className='sp-artist'>{this.props.currentArtist}</div>
+          <button type='button' onClick={this.addToSpotify.bind(this,this.props.spotifyID)}>
+            Add To spotify
+          </button>
         </div>
       </div>
     )

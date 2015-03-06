@@ -1,6 +1,10 @@
 var utils = require('./utils.js');
 var path = require('path');
 var Promise = require('bluebird');
+var seedDBUtils = require('../seedDBServer/utils.js');
+var request = require('request'); 
+var querystring = require('querystring');
+
 
 module.exports.getRelatedSong = function(req, res){
 
@@ -41,15 +45,18 @@ module.exports.getRelatedSong = function(req, res){
 
 module.exports.get11Songs = function(req, res){
   var playedSongs = req.body;
-  utils.multipleSongs(11,playedSongs).then(function(songs){
+  utils.multipleSongs(11,playedSongs, [], function(songs){
+    console.log('ready to send');
     res.status(200).send(songs);
   });
-}
+};
 
 
 module.exports.get3Songs = function(req, res){
   var playedSongs = req.body;
-  utils.multipleSongs(3,playedSongs).then(function(songs){
+  console.log('getting song');
+  utils.multipleSongs(3,playedSongs,[],function(songs){
+    console.log('got song');
     res.status(200).send(songs);
   });
 }
@@ -78,8 +85,6 @@ module.exports.trainingWorker = function(req, res){
 module.exports.getHistory = function(req, res){
   var user = req.user.id;
 
-  console.log('testing the user on the req',req.user);  
-
   var query = utils.retrieveRecords(user);
 
   query.exec(function(err,records){
@@ -90,12 +95,55 @@ module.exports.getHistory = function(req, res){
 
 module.exports.saveRecord = function(req, res){
   var user = req.user.id;
-  var record = req.body;
-
-  console.log('testing the user on the req',req.user); 
-  console.log('testing the body on the req',req.body);  
+  var record = req.body;  
 
   utils.saveToDB(user,record);
 
-  res.status(200);
+  res.status(200).send();
+};
+
+module.exports.search = function(req, res){
+  var artist = req.body.artist;
+  var playedSongs = req.body.playedSongs;
+
+  utils.saveSearchResults(artist, playedSongs).then(function(song){
+    utils.multipleSongs(10,playedSongs,[],function(songs){
+      songs.unshift(song);
+      res.status(200).send(songs);
+    });
+  });
+};
+
+module.exports.createPlaylist = function(req, res){
+
+  console.log('cookies', req.cookies);
+
+
+  var url = 'https://api.spotify.com/v1/users/'+req.user.id+'/playlists';
+  var access_token = req.cookies.access_token;
+
+  utils.checkForPlaylist(url, access_token).then(function(playlistID){
+    res.cookie('playlist_ID',playlistID);
+    res.status(200).send();
+  });
+
+};
+
+module.exports.addToPlaylist = function(req, res){
+
+  var playlist_ID = req.cookies.playlist_ID;
+
+
+  var track_ID = req.body.trackID;
+
+  var url = 'https://api.spotify.com/v1/users/'+req.user.id+'/playlists/'+playlist_ID+'/tracks';
+
+  var access_token = req.cookies.access_token;
+
+  utils.addTrackToPlaylist(url, access_token,track_ID).then(function(playlistID){
+
+    console.log('success!!!!');
+    res.status(200).send();
+  });
+
 };

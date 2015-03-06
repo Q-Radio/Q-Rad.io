@@ -3,7 +3,7 @@ var https = require('https');
 var ENV = require('../../.ENV');
 var Song = require('./database.js');
 
-var isUnique = function(songData){
+module.exports.isUnique = function(songData){
   var query = Song.find();
   query.where('title').equals(songData.title);
   query.where('artist_name').equals(songData.artist_name);
@@ -12,8 +12,8 @@ var isUnique = function(songData){
     if(err) return console.error(err);
     if(songs.length===0){
       var song = songData.audio_summary;
-      var score = song.key*10 + song.energy*10 + song.liveness*10 + song.tempo/50 + song.speechiness*10 + song.acousticness*10 + song.instrumentalness*10 
-        + song.mode*10 + song.time_signature*10 + song.loudness/10 + song.valence*10 + song.danceability*10;
+      var score = song.key*1 + song.energy*100 + song.tempo/5  + song.mode*1000 + song.instrumentalness * 100 + 
+      song.valence*200 + song.danceability*10;
 
       var spotifyID = (songData.tracks[0].foreign_id).split(':')[2];
       var url = 'https://api.spotify.com/v1/tracks?ids='+spotifyID;
@@ -67,10 +67,10 @@ module.exports.getSongData = function(maxSongs, currentSongs){
       data+=chunk;
     });
     APIresponse.on('end', function(){
-      var songsArray = JSON.parse(data).response.songs;
+      var songsArray = JSON.parse(data).response.songs || [];
       for( var i = 0; i < songsArray.length; i++ ){
           var songData = songsArray[i];
-          isUnique(songData);
+          module.exports.isUnique(songData);
 
           currentSongs++;
       }

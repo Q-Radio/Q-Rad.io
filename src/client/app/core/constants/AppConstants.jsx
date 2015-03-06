@@ -9,5 +9,7 @@ module.exports = keyMirror({
   UPDATE_PLAYED: null,
   UPDATE_FUTURE: null,
   STAR: null,
-  SELECT_ANY: null
+  SELECT_ANY: null,
+  NO_SEARCH_RESULTS: null
+
 });
