@@ -4,6 +4,7 @@ var reloader = require('connect-livereload');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 var swig = require('swig');
 var consolidate = require('consolidate');
@@ -24,6 +25,8 @@ app.set('view engine', 'html');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 
 app.use(session({ secret: 'supermusic' }));
 app.use(auth.initialize());
