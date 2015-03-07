@@ -30,7 +30,7 @@ var Player = React.createClass({
             <PlayerControls songAudio={this.props.songAudio} />
             <Stars />
           </div>
-          <Playlist className="futureList" header="Upcoming Songs" playlist={this.props.upcomingSongs}/>
+          <Playlist transitionName="example" className="futureList" header="Upcoming Songs" playlist={this.props.upcomingSongs}/>
         </div>
 
       </span>

@@ -7,7 +7,7 @@ var React = require('react');
 var Quentin = React.createClass({
 
   componentDidMount: function(){
-    setInterval(this.dance, 500);
+    this.dancing = setInterval(this.dance, 500);
   },
 
   dance: function(){
@@ -15,6 +15,10 @@ var Quentin = React.createClass({
     var el = context.getDOMNode();
     $(el).toggleClass('turn-left');
     $(el).toggleClass('turn-right');
+  },
+
+  componentWillUnmount: function(){
+    clearInterval(this.dancing);
   },
 
   render: function() {

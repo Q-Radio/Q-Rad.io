@@ -65,10 +65,15 @@ function getSongsAndUpdate(url, artist){
         AppActions.play();
 
       } else { 
-        futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
-        fetchedSongs = updates.fetchedSongs;
-
-        AppActions.updateFutureList();
+        setTimeout(function(){
+          futureSongs = updates.futureSongs;
+          AppActions.updateFutureList();
+        }, 500);
+        setTimeout(function(){
+          futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
+          fetchedSongs = updates.fetchedSongs;
+          AppActions.updateFutureList();
+        }, 1000);
       }  
     }
 
@@ -206,8 +211,11 @@ var AppActions = {
 
     if(currentSong <=0 ){
       playedSongs.unshift(futureSongs.shift());
-      futureSongs = ActionUtils.dropSongs(futureSongs);
-      getSongsAndUpdate('/3songs');
+      setTimeout(function(){
+        futureSongs = ActionUtils.dropSongs(futureSongs);
+        AppActions.updateFutureList();
+        getSongsAndUpdate('/3songs');
+      }, 500);
       retrained = false;
       currentSong = 0; 
       current = playedSongs[0];

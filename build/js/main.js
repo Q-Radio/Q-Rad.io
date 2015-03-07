@@ -40051,10 +40051,15 @@ function getSongsAndUpdate(url, artist){
         AppActions.play();
 
       } else { 
-        futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
-        fetchedSongs = updates.fetchedSongs;
-
-        AppActions.updateFutureList();
+        setTimeout(function(){
+          futureSongs = updates.futureSongs;
+          AppActions.updateFutureList();
+        }, 500);
+        setTimeout(function(){
+          futureSongs = ActionUtils.reorder(updates.futureSongs, net, retrained);
+          fetchedSongs = updates.fetchedSongs;
+          AppActions.updateFutureList();
+        }, 1000);
       }  
     }
 
@@ -40192,8 +40197,11 @@ var AppActions = {
 
     if(currentSong <=0 ){
       playedSongs.unshift(futureSongs.shift());
-      futureSongs = ActionUtils.dropSongs(futureSongs);
-      getSongsAndUpdate('/3songs');
+      setTimeout(function(){
+        futureSongs = ActionUtils.dropSongs(futureSongs);
+        AppActions.updateFutureList();
+        getSongsAndUpdate('/3songs');
+      }, 500);
       retrained = false;
       currentSong = 0; 
       current = playedSongs[0];
@@ -40620,7 +40628,7 @@ var Player = React.createClass({displayName: "Player",
             React.createElement(PlayerControls, {songAudio: this.props.songAudio}), 
             React.createElement(Stars, null)
           ), 
-          React.createElement(Playlist, {className: "futureList", header: "Upcoming Songs", playlist: this.props.upcomingSongs})
+          React.createElement(Playlist, {transitionName: "example", className: "futureList", header: "Upcoming Songs", playlist: this.props.upcomingSongs})
         )
 
       )
@@ -40748,7 +40756,7 @@ var Playlist = React.createClass({displayName: "Playlist",
     return (
       React.createElement("span", {className: this.props.className}, 
         React.createElement("h4", {className: "playlist-header"}, " ", this.props.header, " "), 
-        React.createElement(ReactCSSTransitionGroup, {className: "Transition-Group", transitionName: "example"}, 
+        React.createElement(ReactCSSTransitionGroup, {className: "Transition-Group", transitionName: this.props.transitionName}, 
           items
         )
       )
@@ -40805,7 +40813,7 @@ var React = require('react');
 var Quentin = React.createClass({displayName: "Quentin",
 
   componentDidMount: function(){
-    setInterval(this.dance, 500);
+    this.dancing = setInterval(this.dance, 500);
   },
 
   dance: function(){
@@ -40813,6 +40821,10 @@ var Quentin = React.createClass({displayName: "Quentin",
     var el = context.getDOMNode();
     $(el).toggleClass('turn-left');
     $(el).toggleClass('turn-right');
+  },
+
+  componentWillUnmount: function(){
+    clearInterval(this.dancing);
   },
 
   render: function() {
