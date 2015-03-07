@@ -21,7 +21,7 @@ var Loading = React.createClass({
 
     return (
       <div className="loading">
-        <Quentin url="../assets/quentinMedium.png"/>
+        <Quentin url="../assets/quentinMedium.png" dance="true" />
         <h1>Just a sec as Quentin finds you awesome music!</h1>
         <br />
         <span className={classes}></span>

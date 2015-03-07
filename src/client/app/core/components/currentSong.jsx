@@ -4,6 +4,8 @@
 
 var React = require('react');
 var AppActions = require('./../actions/AppActions.jsx');
+var mui = require('material-ui');
+var Snackbar = mui.Snackbar;
 
 var CurrentSong = React.createClass({
 
@@ -16,7 +18,18 @@ var CurrentSong = React.createClass({
   },
 
   addToSpotify: function(spotifyID){
+    console.log('spotifyID',spotifyID);
+    this.refs.Snackbar.show();
     AppActions.addTrackToSpotify(spotifyID);
+    setTimeout(function(){
+      this.refs.Snackbar.dismiss()
+    }.bind(this), 3000);
+  },
+
+  hideSnackbar: function(){
+    console.log('heyyyyyy')
+    console.log(this);
+    
   },
 
   render: function() {
@@ -32,6 +45,10 @@ var CurrentSong = React.createClass({
             Add to your Rad Playlist!
           </div>
         </div>
+        <Snackbar
+          ref="Snackbar"
+          message="Song added to your Spotify playlist!"
+          action="Woohoo!"/>
       </div>
     )
   }
