@@ -6,13 +6,22 @@ var React = require('react');
 
 var Quentin = React.createClass({
 
+  componentDidMount: function(){
+    setInterval(this.dance, 500);
+  },
+
+  dance: function(){
+    var context = this;
+    var el = context.getDOMNode();
+    $(el).toggleClass('turn-left');
+    $(el).toggleClass('turn-right');
+  },
+
   render: function() {
 
-    var url = "../assets/quentin.png"
-
     return (
-      <div className="quentin">
-        <img src={this.url}></img> 
+      <div className="quentin turn-right">
+        <img src={this.props.url}></img> 
       </div>
     )
   }

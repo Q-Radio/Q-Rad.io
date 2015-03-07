@@ -76,7 +76,7 @@ function getSongsAndUpdate(url, artist){
 };
 
 function addTrainingData(){
-  if(rating){
+  if(typeof rating === 'number'){
     playedSongs[currentSong].rating = rating+1;
     var audioDetails = playedSongs[currentSong].audio_summary;   
 
@@ -94,7 +94,7 @@ function addTrainingData(){
       }     
     }
     rating=false;    
-  }
+  } 
 }
 
 var AppActions = {
@@ -243,6 +243,7 @@ var AppActions = {
   },
 
   star: function(stars){
+    console.log('stars', stars)
     rating = stars;
 
     AppDispatcher.dispatch({

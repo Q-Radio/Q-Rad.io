@@ -11,10 +11,17 @@ var PlayButton  = React.createClass({
   player: false,
   starting: true,
 
+
   togglePlay: function(){
+    var context = this;
+    var el = context.getDOMNode()
     if(this.player.paused){
+      $(el).find('span').addClass('fa-play');
+      $(el).find('span').removeClass('fa-pause');
       this.player.play();
     } else {
+      $(el).find('span').removeClass('fa-play');
+      $(el).find('span').addClass('fa-pause');
       this.player.pause();
     }
   },
@@ -38,7 +45,7 @@ var PlayButton  = React.createClass({
     return (
       <span>
         <audio ref="audio" className="audio" src={this.props.songAudio} autoPlay='true' />
-        <span className="fa fa-play fa-2x controls" onClick={this.togglePlay}> </span>
+        <span className="fa fa-play fa-2x controls controls-play" onClick={this.togglePlay}> </span>
       </span>
     )
   }

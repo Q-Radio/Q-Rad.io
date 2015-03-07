@@ -7,6 +7,10 @@ body, html{
   height: 100%;
 }
 
+.invisible{
+  opacity: 0;
+}
+
 .search-box{
   margin-left: .5%;
   margin-right: .5%;
@@ -38,6 +42,20 @@ body, html{
 .test{
   margin: 0 auto;
 }
+
+.turn-left{
+  transform:rotate(-60deg);
+  transition: transform .5s;
+}
+
+.turn-right{
+  transform:rotate(60deg);
+  transition: transform .5s;
+}
+.quentin{
+  transition: transform .5s;
+}
+
 
 .container{
   background-color: @light-blue-500;
@@ -137,16 +155,28 @@ body, html{
 
 .controls{
   cursor: pointer;
+  width: 60px;
+  height: 60px;
   margin-top: 15px;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 10px;
   padding: 5px;
-  border-radius: 20px;
+  padding-top: 12px;
+  border-radius: 30px;
   border: solid;
   border-color: black;
   border-width: 3px;
   background: @light-green-700;
 }
+
+/*
+not currently working
+.controls-play{
+  .controls;
+  padding-left: 8px;
+}
+*/
 
 .playlist {
   background: @amber-A200;
@@ -162,6 +192,15 @@ body, html{
   margin-left: 5%;
 }
 
+.playlist-header{
+  margin: 0;
+  padding: 0;
+  padding-top: 3px; 
+  padding-bottom: 8px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .playlist-item:first-child{
   // border-radius: 10px;
 }
@@ -171,6 +210,7 @@ body, html{
 }
 
 .playlist-item {
+  position: relative;
   cursor: url('../../../assets/quentin.png'), default;
   min-height: 70px;
   width: 100%;
@@ -186,7 +226,8 @@ body, html{
 }
 
 .rated-star{
-  float: right;
+  position: absolute;
+  right: 0;
 }
 
 * { box-sizing: border-box }

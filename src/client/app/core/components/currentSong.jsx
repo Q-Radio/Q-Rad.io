@@ -29,9 +29,9 @@ var CurrentSong = React.createClass({
             <div className='sp-title'>{this.props.currentSong}</div>
           </a>
           <div className='sp-artist'>{this.props.currentArtist}</div>
-          <button type='button' onClick={this.addToSpotify.bind(this,this.props.spotifyID)}>
-            Add To spotify
-          </button>
+          <div className='sp-artist' type='button' onClick={this.addToSpotify.bind(this,this.props.spotifyID)}>
+            Add to your Rad Playlist!
+          </div>
         </div>
       </div>
     )
