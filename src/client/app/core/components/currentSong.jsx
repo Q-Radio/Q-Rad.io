@@ -16,7 +16,6 @@ var CurrentSong = React.createClass({
   },
 
   addToSpotify: function(spotifyID){
-    console.log('spotifyID',spotifyID);
     AppActions.addTrackToSpotify(spotifyID);
   },
 
