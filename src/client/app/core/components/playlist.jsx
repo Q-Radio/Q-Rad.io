@@ -38,7 +38,7 @@ var Playlist = React.createClass({
     return (
       <span className={this.props.className}>
         <h4 className="playlist-header"> {this.props.header} </h4>
-        <ReactCSSTransitionGroup className='Transition-Group' transitionName="example">
+        <ReactCSSTransitionGroup className='Transition-Group' transitionName={this.props.transitionName}>
           {items}
         </ReactCSSTransitionGroup>
       </span>
