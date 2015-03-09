@@ -30,13 +30,15 @@
 
   //===============TEST 
   gulp
-  .task('casper:dev', tasks.casper.dev)
+  //.task('casper:dev', tasks.casper.dev)
   .task('mocha:dev' , tasks.mocha.dev)
+  .task('mocha:jsx', tasks.mocha.jsx)
   .task('karma:dev' , tasks.karma.dev)
   .task('test', 
     $.sequence( 'mocha:dev'
-              , 'karma:dev'
-              , 'casper:dev'));
+              , 'mocha:jsx'
+              , 'karma:dev'));
+             // , 'casper:dev'));
 
   //================BUILD
   gulp
