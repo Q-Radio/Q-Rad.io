@@ -20,7 +20,7 @@ var app = express();
 var build = Path.resolve(__dirname,'../../build');
 
 app.engine('html', consolidate.swig);
-app.set('views', build + '/templates/core/views');
+app.set('views', build + '/templates');
 app.set('view engine', 'html');
 
 app.use(bodyParser.json());
