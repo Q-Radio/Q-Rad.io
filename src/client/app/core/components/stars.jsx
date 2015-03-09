@@ -24,7 +24,6 @@ var Stars = React.createClass({
     var el = this.getDOMNode();
     $(el).rating();
     $(el).on('rating.change', function(event, value) {
-      console.log(value);
       var expectedValue = value - 1;
       context.sendScore(expectedValue);
     });

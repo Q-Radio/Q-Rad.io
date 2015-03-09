@@ -10,6 +10,7 @@
     "less": "src/client/app/**/*.less",
     "css": "src/client/app/**/*.css",
     "compile": "./src/client/app/core/main.jsx",
+    "loginCompile": "./src/client/app/core/login.jsx",
     "assets": "./src/client/app/core/assets/*"
   },
   "vendor": {

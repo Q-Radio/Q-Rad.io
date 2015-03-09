@@ -30,7 +30,6 @@ var PlayButton  = React.createClass({
     this.player = this.refs.audio.getDOMNode();
     this.starting = true;
     this.player.addEventListener('ended', function(){
-      console.log('ended');
       AppActions.next();
     });
     this.player.addEventListener('playing', (function(){

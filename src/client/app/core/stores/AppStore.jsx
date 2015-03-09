@@ -7,19 +7,6 @@ var assign = require('object-assign');
 
 var AppActions = require('./../actions/AppActions.jsx');
 
-// AppActions.play()
-// AppActions.next()
-// AppActions.prev()
-
-// this.props.currentSong
-// this.props.currentArtist
-// this.props.songAudio
-// this.props.albumArt
-
-// this.props.playlist
-// this.props.upcomingSongs
-
-
 var CHANGE_EVENT = 'change';
 
 var _playlist;
@@ -31,9 +18,6 @@ var _albumArt;
 var _fullSong;
 var _spotifyID;
 var _paused;
-
-
-
 
 var AppStore = assign({}, EventEmitter.prototype, {
 

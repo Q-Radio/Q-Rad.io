@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher.jsx');
 var AppConstants = require('../constants/AppConstants.jsx');
 var Promise = require ('bluebird');
 var brain = require('brain');
-var ActionUtils = require('./ActionUtils.jsx');
+var ActionUtils = require('./ActionUtils/index.jsx');
 
 var fetchedSongs = [];
 var trainingData = [];
@@ -34,7 +34,6 @@ function train (){
       worker.onmessage = onMessage;
       worker.onerror = ActionUtils.onError;
       worker.postMessage(JSON.stringify(trainingData));
-      console.log('using webworker');
     })
     } else {
       net = new brain.NeuralNetwork();
@@ -61,7 +60,6 @@ function getSongsAndUpdate(url, artist){
         playedSongs.unshift(updates.futureSongs.shift());
         futureSongs = updates.futureSongs;
         fetchedSongs = updates.fetchedSongs;
-        console.log(futureSongs);
         AppActions.play();
 
       } else { 
@@ -189,8 +187,11 @@ var AppActions = {
       }
       playedSongs.unshift(futureSongs[index]);
       futureSongs.splice(index,1);
-      futureSongs = ActionUtils.dropSongs(futureSongs);
-      getSongsAndUpdate('/3songs');
+      setTimeout(function(){
+        futureSongs = ActionUtils.dropSongs(futureSongs);
+        AppActions.updateFutureList();
+        getSongsAndUpdate('/3songs');
+      }, 500);
       retrained = false;      
     }
     var playlist = ActionUtils.modifyPlaylist(currentSong, playedSongs);      
@@ -251,7 +252,6 @@ var AppActions = {
   },
 
   star: function(stars){
-    console.log('stars', stars)
     rating = stars;
 
     AppDispatcher.dispatch({
