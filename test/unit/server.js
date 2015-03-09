@@ -5,7 +5,6 @@ var expect = chai.expect;
 
 var http   = require("http");
 var server = require("../../src/server/server.js");
-var utils = require('../../src/server/utils.js')
 
 describe('testing', function() {
 

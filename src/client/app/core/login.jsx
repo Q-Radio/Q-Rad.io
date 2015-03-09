@@ -19,8 +19,9 @@
             <span> Login With Spotify </span>
           </a>
         </div>
-      );
+      )
     }
   });
 
-  React.render(< Login />, document.getElementById('app'));
+
+  React.render(< Login />, document.body);

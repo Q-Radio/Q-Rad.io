@@ -10,13 +10,13 @@ Rapid music discovery engine powered by machine learning.
 
 ## Context
 
-We all love music, but sometimes its hard to find new songs we enjoy. 
+We all love music, but it’s hard to find new songs we enjoy. Introducing Quentin, your personalized music Q-rator who continuously learns your preferences and finds Rad music you will enjoy. 
 
 Existing music players play full songs and focus on genre as a major criterion for recommendations,  making it difficult to quickly discover music. 
 
 Our app uses cutting-edge Javascript frameworks as well as Echonest and Spotify APIs to address this market need. 
 
-We named our project Q-Rad.io: Q representing the queue of future songs to be played; Rad.io since its a Rad radio.
+We named our project Q-Rad.io: Q for Quentin, your future songs queue manager; Rad.io since its a Rad radio. 
 
 ## How it works
 
@@ -32,7 +32,9 @@ If at any moment the user really likes a song they may listen to the full versio
 
 ## Tech Stack
 
-Javascript, Node.js, Express, MongoDB, Mongoose.js, React, Flux, Passport.js, Brain.js, Web Workers, Bluebird, HTML, CSS, Less, Gulp, Karma, Mocha, Chai, Casper.js, Jest, Travis.CI, AWS
+Javascript, Node.js, Express, MongoDB, Mongoose.js, React, Flux, Passport.js, Brain.js, Web Workers, Bluebird, HTML, CSS, Less, Gulp, Karma, Mocha, Chai, Casper.js, Jsx-test, Travis.CI, AWS
+
+![Q-Rad.io Architecture](Q-Rad.io Architecture.png)
 
 ## Installing Dependencies & Build Process
 
