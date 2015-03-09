@@ -3,6 +3,8 @@ var https = require('https');
 var ENV = require('../../.ENV');
 var Song = require('./database.js');
 
+var echonest = process.env.echonest || require('../../.ENV').echonest;
+
 module.exports.isUnique = function(songData){
   var query = Song.find();
   query.where('title').equals(songData.title);
@@ -58,7 +60,7 @@ module.exports.getSongData = function(maxSongs, currentSongs){
 
   var searchQuery = '&start='+currentSongs+'&results='+results;
 
-  var url = ENV.echonest + searchQuery;
+  var url = echonest + searchQuery;
 
 	http.get(url, function(APIresponse){
     console.log('seed');

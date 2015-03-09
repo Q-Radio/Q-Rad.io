@@ -1,16 +1,14 @@
 var express = require('express');
 var utils = require('./utils.js');
 var mongoose = require('mongoose');
-var ENV = require('../../.ENV');
-
 
 var app = express();
 var port = process.env.PORT || 3000;
 app.use(express.static(__dirname))
 
+var mongo = process.env.mongo || require('../../.ENV').mongo;
 
-mongoose.connect(ENV.mongo);
-
+mongoose.connect(mongo);
 
 app.get('/seed', function(req, res){
   console.log('seed');
