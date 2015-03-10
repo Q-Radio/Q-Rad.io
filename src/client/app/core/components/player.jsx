@@ -4,12 +4,14 @@
 
 var React = require('react');
 var mui = require('material-ui');
+var Snackbar = mui.Snackbar;
 var CurrentSong = require('./currentSong.jsx');
 var PlayerControls = require('./player-controls.jsx');
 var Playlist = require('./playlist.jsx');
 var Stars = require('./stars.jsx');
+var Quentin = require('./quentin.jsx');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-//var actions = require('./../actions/AppActions.jsx');
+
 
 var Player = React.createClass({
   handleClick: function (e) {
@@ -29,10 +31,10 @@ var Player = React.createClass({
                                                   spotifyID={this.props.spotifyID}/>
             <PlayerControls songAudio={this.props.songAudio} />
             <Stars />
+            <Quentin url="../assets/quentinMedium.png" dance="false"/>
           </div>
           <Playlist transitionName="example" className="futureList" header="Upcoming Songs" playlist={this.props.upcomingSongs}/>
         </div>
-
       </span>
     )
   }

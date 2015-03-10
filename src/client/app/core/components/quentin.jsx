@@ -7,7 +7,14 @@ var React = require('react');
 var Quentin = React.createClass({
 
   componentDidMount: function(){
-    this.dancing = setInterval(this.dance, 500);
+    var context = this;
+    var el = context.getDOMNode();
+    if(this.props.dance === "true"){
+      this.dancing = setInterval(this.dance, 500);
+    } else{
+      clearInterval(this.dancing);
+      $(el).removeClass('turn-right');
+    }
   },
 
   dance: function(){
