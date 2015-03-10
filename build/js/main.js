@@ -40510,6 +40510,8 @@ module.exports = Signup;
 
 var React = require('react');
 var AppActions = require('./../actions/AppActions.jsx');
+var mui = require('material-ui');
+var Snackbar = mui.Snackbar;
 
 var CurrentSong = React.createClass({displayName: "CurrentSong",
 
@@ -40522,7 +40524,18 @@ var CurrentSong = React.createClass({displayName: "CurrentSong",
   },
 
   addToSpotify: function(spotifyID){
+    console.log('spotifyID',spotifyID);
+    this.refs.Snackbar.show();
     AppActions.addTrackToSpotify(spotifyID);
+    setTimeout(function(){
+      this.refs.Snackbar.dismiss()
+    }.bind(this), 3000);
+  },
+
+  hideSnackbar: function(){
+    console.log('heyyyyyy')
+    console.log(this);
+    
   },
 
   render: function() {
@@ -40537,7 +40550,11 @@ var CurrentSong = React.createClass({displayName: "CurrentSong",
           React.createElement("div", {className: "sp-artist", type: "button", onClick: this.addToSpotify.bind(this,this.props.spotifyID)}, 
             "Add to your Rad Playlist!"
           )
-        )
+        ), 
+        React.createElement(Snackbar, {
+          ref: "Snackbar", 
+          message: "Song added to your Spotify playlist!", 
+          action: "Woohoo!"})
       )
     )
   }
@@ -40545,7 +40562,7 @@ var CurrentSong = React.createClass({displayName: "CurrentSong",
 
 module.exports = CurrentSong;
 
-},{"./../actions/AppActions.jsx":321,"react":304}],324:[function(require,module,exports){
+},{"./../actions/AppActions.jsx":321,"material-ui":34,"react":304}],324:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40609,7 +40626,7 @@ var Loading = React.createClass({displayName: "Loading",
 
     return (
       React.createElement("div", {className: "loading"}, 
-        React.createElement(Quentin, {url: "../assets/quentinMedium.png"}), 
+        React.createElement(Quentin, {url: "../assets/quentinMedium.png", dance: "true"}), 
         React.createElement("h1", null, "Just a sec as Quentin finds you awesome music!"), 
         React.createElement("br", null), 
         React.createElement("span", {className: classes}), 
@@ -40697,34 +40714,36 @@ var PlayButton  = React.createClass({displayName: "PlayButton",
   player: false,
   starting: true,
 
-
   togglePlay: function(){
-    var context = this;
-    var el = context.getDOMNode()
-    if(this.player.paused){
-      $(el).find('span').addClass('fa-play');
-      $(el).find('span').removeClass('fa-pause');
-      this.player.play();
-    } else {
-      $(el).find('span').removeClass('fa-play');
-      $(el).find('span').addClass('fa-pause');
-      this.player.pause();
-    }
-  },
+     if(this.player.paused){
+       this.player.play();
+     } else {
+       this.player.pause();
+     }
+   },
 
-  componentDidMount: function() {
-    this.player = this.refs.audio.getDOMNode();
-    this.starting = true;
-    this.player.addEventListener('ended', function(){
-      AppActions.next();
-    });
-    this.player.addEventListener('playing', (function(){
-      if(this.starting){
-        this.player.pause();
-        this.starting = false;
-      }
-    }).bind(this));
-  },
+   componentDidMount: function() {
+     this.player = this.refs.audio.getDOMNode();
+     this.starting = true;
+     var el = this.getDOMNode();
+     this.player.addEventListener('ended', function(){
+       AppActions.next();
+     });
+     this.player.addEventListener('playing', (function(){
+       $(el).find('span').removeClass('fa-play');
+       $(el).find('span').addClass('fa-pause');
+       if(this.starting){
+         this.player.pause();
+         this.starting = false;
+       }
+     }).bind(this));
+
+     this.player.addEventListener('pause', function(){
+       $(el).find('span').addClass('fa-play');
+       $(el).find('span').removeClass('fa-pause');
+     });
+
+   },
   
   render: function() {
     return (
@@ -40787,12 +40806,14 @@ module.exports = PlayerControls;
 
 var React = require('react');
 var mui = require('material-ui');
+var Snackbar = mui.Snackbar;
 var CurrentSong = require('./currentSong.jsx');
 var PlayerControls = require('./player-controls.jsx');
 var Playlist = require('./playlist.jsx');
 var Stars = require('./stars.jsx');
+var Quentin = require('./quentin.jsx');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-//var actions = require('./../actions/AppActions.jsx');
+
 
 var Player = React.createClass({displayName: "Player",
   handleClick: function (e) {
@@ -40811,11 +40832,11 @@ var Player = React.createClass({displayName: "Player",
                                                   fullSong: this.props.fullSong, 
                                                   spotifyID: this.props.spotifyID}), 
             React.createElement(PlayerControls, {songAudio: this.props.songAudio}), 
-            React.createElement(Stars, null)
+            React.createElement(Stars, null), 
+            React.createElement(Quentin, {url: "../assets/quentinMedium.png", dance: "false"})
           ), 
           React.createElement(Playlist, {transitionName: "example", className: "futureList", header: "Upcoming Songs", playlist: this.props.upcomingSongs})
         )
-
       )
     )
   }
@@ -40823,7 +40844,7 @@ var Player = React.createClass({displayName: "Player",
 
 module.exports = Player;
 
-},{"./currentSong.jsx":323,"./player-controls.jsx":328,"./playlist.jsx":331,"./stars.jsx":335,"material-ui":34,"react":304}],330:[function(require,module,exports){
+},{"./currentSong.jsx":323,"./player-controls.jsx":328,"./playlist.jsx":331,"./quentin.jsx":332,"./stars.jsx":335,"material-ui":34,"react":304}],330:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -40914,76 +40935,35 @@ var Actions = require('./../actions/AppActions.jsx');
 
 var Playlist = React.createClass({displayName: "Playlist",
 
-
-
-  handleAdd: function() {
-    // var newList = this.state.list.concat([obj]);
-    Actions.updatePlaylist();
-    // this.setState({list: newList})
-  },
-
-  handleRemove: function(i) {
-    // var newList = this.state.list;
-    // newList.splice(i, 1);
-    // this.setState({list: newList});
-  },
-
   render: function() {
-    var items = this.props.playlist.map(function(item, i) {
-      return (
-        React.createElement("div", {onClick: this.handleRemove.bind(this, i)}, 
-          React.createElement("span", {key: item.title}, 
-            React.createElement(Item, {title: item.title, artist: item.artist_name, rating: item.rating})
-          )
-        )
-      );
-    }.bind(this));
-    return (
-      React.createElement("span", {className: this.props.className}, 
-        React.createElement("h4", {className: "playlist-header"}, " ", this.props.header, " "), 
-        React.createElement(ReactCSSTransitionGroup, {className: "Transition-Group", transitionName: this.props.transitionName}, 
-          items
-        )
-      )
-    )
-  }
-})
-        // <button onClick={this.handleAdd}> Add! </button>
-        // <ReactCSSTransitionGroup transitionName="example">
-        // </ReactCSSTransitionGroup>
-
-// var TodoList = React.createClass({
-//   getInitialState: function() {
-//     return {items: ['hello', 'world', 'click', 'me']};
-//   },
-//   handleAdd: function() {
-//     var newItems =
-//     this.state.items.concat([prompt('Enter some text')]);
-//     this.setState({items: newItems});
-//   },
-//   handleRemove: function(i) {
-//     var newItems = this.state.items;
-//     newItems.splice(i, 1);
-//     this.setState({items: newItems});
-//   },
-//   render: function() {
-//     var items = this.state.items.map(function(item, i) {
-//       return (
-//         <div key={item} onClick={this.handleRemove.bind(this, i)}>
-//           {item}
-//         </div>
-//       );
-//     }.bind(this));
-//     return (
-//       <div>
-//         <button onClick={this.handleAdd}>Add Item</button>
-//         <ReactCSSTransitionGroup transitionName="example">
-//           {items}
-//         </ReactCSSTransitionGroup>
-//       </div>
-//     );
-//   }
-// });
+     var items = this.props.playlist.map(function(item, i) {
+       return (
+         React.createElement("div", null, 
+           React.createElement("span", {key: item.title}, 
+             React.createElement(Item, {title: item.title, artist: item.artist_name, rating: item.rating})
+           )
+         )
+       );
+     }.bind(this));
+     if(this.props.transitionName){
+       return (
+         React.createElement("span", {className: this.props.className}, 
+           React.createElement("h4", {className: "playlist-header"}, " ", this.props.header, " "), 
+           React.createElement(ReactCSSTransitionGroup, {className: "Transition-Group", transitionName: this.props.transitionName}, 
+             items
+           )
+         )
+       )  
+     } else {
+         return (
+           React.createElement("span", {className: this.props.className}, 
+             React.createElement("h4", {className: "playlist-header"}, " ", this.props.header, " "), 
+               items
+           )
+       )  
+     }
+   }
+ });
 
 module.exports = Playlist;
 
@@ -40998,7 +40978,14 @@ var React = require('react');
 var Quentin = React.createClass({displayName: "Quentin",
 
   componentDidMount: function(){
-    this.dancing = setInterval(this.dance, 500);
+    var context = this;
+    var el = context.getDOMNode();
+    if(this.props.dance === "true"){
+      this.dancing = setInterval(this.dance, 500);
+    } else{
+      clearInterval(this.dancing);
+      $(el).removeClass('turn-right');
+    }
   },
 
   dance: function(){

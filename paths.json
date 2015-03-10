@@ -10,7 +10,6 @@
     "less": "src/client/app/core/styles/*.less",
     "css": "src/client/app/**/*.css",
     "compile": "./src/client/app/core/main.jsx",
-    "loginCompile": "./src/client/app/core/login.jsx",
     "assets": "./src/client/app/core/assets/*"
   },
   "vendor": {
@@ -32,6 +31,23 @@
     "index": "build/index.html",
     "js": "build/js/core/*.js",
     "css": "build/css/**/*",
+    "vendor": "build/vendor/**/*",
+    "templates": "build/templates/**/*",
+    "dir": {
+      "js": "build/js",
+      "css": "build/css",
+      "vendor": "build/vendor",
+      "templates": "build/templates",
+      "assets": "build/assets"
+    }
+  },
+  "stage": {
+    "root": "build",
+    "all": "build/**/*",
+    "main":"build/js/main.js",
+    "index": "build/index.html",
+    "js": "build/js/core/*.js",
+    "css": "build/css/*",
     "vendor": "build/vendor/**/*",
     "templates": "build/templates/**/*",
     "dir": {

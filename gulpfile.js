@@ -28,6 +28,12 @@
                 , 'start:dev'
                 ))
 
+  gulp
+    .task('stage',
+      $.sequence( 'clean'
+                , 'build:stage'
+                ))
+
   //===============TEST 
   gulp
   //.task('casper:dev', tasks.casper.dev)
@@ -48,7 +54,6 @@
     .task( 'html:dev'     , tasks.html.dev)
     .task( 'assets:dev'   , tasks.assets.dev)
     .task( 'compile:dev'  , tasks.compile.dev)
-    .task( 'loginCompile:dev'  , tasks.loginCompile.dev)
     .task( 'build:dev',
       $.sequence( 'js:dev'
                 , 'less:dev'
@@ -56,7 +61,27 @@
                 , 'html:dev'
                 , 'assets:dev'
                 , 'compile:dev'
-                , 'loginCompile:dev'
+                ));
+
+  //=================STAGE
+   gulp
+    .task( 'js:stage'           , tasks.js.stage)
+    .task( 'less:stage'         , tasks.less.stage)
+    .task( 'css:stage'          , tasks.css.stage)
+    .task( 'html:stage'         , tasks.html.stage)
+    .task( 'assets:stage'       , tasks.assets.stage)
+    .task( 'compile:stage'      , tasks.compile.stage)
+    .task( 'vendor:stage', tasks.vendor.stage)
+    .task( 'inject:stage', tasks.inject.stage)
+    .task( 'build:stage',
+      $.sequence( 'js:stage'
+                , 'less:stage'
+                , 'css:stage'
+                , 'html:stage'
+                , 'assets:stage'
+                , 'compile:stage'
+                , 'vendor:stage'
+                , 'inject:stage'
                 ));
 
   //=================START
