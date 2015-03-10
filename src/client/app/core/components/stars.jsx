@@ -7,12 +7,10 @@ var AppActions = require('../actions/AppActions.jsx');
 
 var Stars = React.createClass({
 
-  changed: false,
+  currentSong: false,
 
   clearStars: function(){
-    if(this.changed){
-      $(el).rating('clear');
-    }
+    return false;
   },
 
   sendScore: function(score){
@@ -27,13 +25,23 @@ var Stars = React.createClass({
       var expectedValue = value - 1;
       context.sendScore(expectedValue);
     });
+    this.clearStars = function(){
+        $(el).rating('clear');
+        console.log('this has been cleared');
+    }
   },
 
   render: function() {
-    return (
-        <input id="stars" className="rating" data-show-caption="false" data-show-clear="false" data-step="1" data-size="sm" />
-    )
-  }
-})
+    if(this.props.currentSong !==this.currentSong){
+      console.log('clearing');
+      this.clearStars();
+      this.currentSong=this.props.currentSong;
+    }
+      return (
+          <input id="stars" className="rating" data-show-caption="false" data-show-clear="false" data-step="1" data-size="sm" />
+      )
+      
+    }
+  });
 
 module.exports = Stars;

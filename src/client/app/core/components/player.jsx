@@ -30,8 +30,8 @@ var Player = React.createClass({
                                                   fullSong={this.props.fullSong} 
                                                   spotifyID={this.props.spotifyID}/>
             <PlayerControls songAudio={this.props.songAudio} />
-            <Stars />
             <Quentin url="../assets/quentinMedium.png" dance="false"/>
+            <Stars currentSong={this.props.currentSong} />
           </div>
           <Playlist transitionName="example" className="futureList" header="Upcoming Songs" playlist={this.props.upcomingSongs}/>
         </div>

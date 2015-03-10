@@ -27,7 +27,8 @@ var Header = React.createClass({
         <h1>Q-Rad.io</h1>
           <div> What should Quentin look up? </div>
           <button type="button" className="header-btn" primary={true} onClick={this.search}> Search </button>
-          <input ref="textInput" className="search-box" type="text" size="34" placeholder="find your next Rad-Slice!"></input>
+          <input ref="textInput" className="search-box" type="text" size="34" placeholder="find your next Rad-Slice!"
+            onkeydown="if (event.keyCode == 13) this.search"></input>
           <button type="button" className="header-btn" onClick={this.getRandomSong}> Random </button>        
         </form>
       </div>
