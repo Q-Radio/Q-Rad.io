@@ -8,7 +8,7 @@
     "js": "src/client/app/**/*.js",
     "jsx": "src/client/app/**/*.jsx",
     "less": "src/client/app/core/styles/*.less",
-    "css": "src/client/app/**/*.css",
+    "css": "src/client/app/core/styles/*.css",
     "compile": "./src/client/app/core/main.jsx",
     "assets": "./src/client/app/core/assets/*"
   },
@@ -30,7 +30,7 @@
     "main":"build/js/main.js",
     "index": "build/index.html",
     "js": "build/js/core/*.js",
-    "css": "build/css/**/*",
+    "css": "build/css/*",
     "vendor": "build/vendor/**/*",
     "templates": "build/templates/**/*",
     "dir": {
